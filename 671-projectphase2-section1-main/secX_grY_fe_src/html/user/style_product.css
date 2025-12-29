@@ -1,0 +1,253 @@
+/*เรียก css ผ่านclass เพื่อตกแต่งให้สวยงาม*/
+
+
+*{
+    font-weight: 300;
+    font-family: 'Cormorant Garamond';
+}
+
+
+.container {
+    padding-top: 40px;
+}
+
+.in-wishlist {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+
+.in-wishlist .details {
+    flex: 1;
+    padding-left: 40px;
+}
+
+.details p, .details h2 {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.details h2 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.details .price {
+    font-size: 24px;
+    color: #555;
+}
+
+.details .actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.actions button {
+    background-color: #413B3B;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.actions .cart:hover {
+    background-color: #585151;
+}
+
+.actions .wishlist {
+    background-color: transparent;
+    color: #413B3B;
+    border: 2px solid #413B3B;
+    background-color: #EBE6E0;
+}
+.actions .wishlist:hover {
+    background-color: #cdc9c5;
+
+
+
+}
+
+.details .info-table {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.info-table th, .info-table td {
+    border-bottom: 2px solid #ADADAD;
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: left;
+}
+.info-table tr {
+    border-top: 2px solid #ADADAD;
+}
+
+.info-table th {
+    text-align: center;
+    color: #000000;
+    width: 150px;
+    background-color: #EBE6E0;
+}
+
+.info-table td {
+    color: #333;
+    text-align: center;
+    
+}
+
+.back-link {
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+.header {
+    margin-bottom: 40px;
+}
+
+
+
+/* ปรับ container สำหรับปุ่ม back */
+.back-button {
+    position: absolute;
+    top: 10px; 
+    left: 0px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.product-container {
+    position: relative; /* เพื่อให้ element สามารถซ้อนกันใน container นี้ได้ */
+    
+}
+
+.product-img {
+    width: 500px;   
+    height: 500px;  
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.product-img.fade {
+    opacity: 0;
+}
+
+
+
+
+.txt_DATAILS{
+    font-size:16px;
+    font-weight: bold;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.thumbnail-container img.thumbnail {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnail-container img.thumbnail:hover {
+    border: 2px solid #333;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        text-align: center;
+        padding-top: 40px;
+    }
+    .product-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+
+    .in-wishlist {
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .product-img {
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px; 
+    }
+
+    .details {
+        text-align: center;
+        margin: 0 auto; 
+        padding: 20px; 
+        max-width: 600px; 
+    }
+    
+
+    .details h2 {
+        font-size: 20px;
+    }
+
+    .details .price {
+        font-size: 20px;
+    }
+
+    .details .actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .actions button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    
+    .info-table th, .info-table td {
+        border-bottom: 2px solid #ADADAD;
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    
+    
+    .back-button {
+        top: 5px;
+        left: 5px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+

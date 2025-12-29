@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit admin</title>
+    <link rel="stylesheet" href="/admin/add_product.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img class="logo_img" src="/logo2.png" alt="Logo">
+                GADY PADIE
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/user">Users</a></li>
+                    <li><a href="/admin_product">Product</a></li>
+                    <li class="active"><a href="/Administrators">Administrators</a></li>
+                    <li><a href="/index">Homepage</a></li>
+                </ul>
+                <form action="http://localhost:3030/logout" method="POST">
+                    <button type="submit" class="logout_bt">LOGOUT</button>
+                  </form>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Edit Admin</h1>
+            </header>
+
+            <!-- Form Edit admin -->
+            <section class="add-product-form">
+                <form action="http://localhost:3030/admin-update" method="POST">
+                    <div class="form-left">
+                        <label for="admin-id">Admin ID:</label>
+                        <input type="text" id="admin-id" name="adminid" required readonly>
+
+                        <label for="admin-Username">Username:</label>
+                        <input type="text" id="admin-Username" name="username" required>
+
+                        <label for="admin-FirstName">FirstName:</label>
+                        <input type="text" id="admin-FirstName" name="firstname" required>
+
+                        <label for="admin-LastName">LastName:</label>
+                        <input type="text" id="admin-LastName" name="lastname" required>
+
+                        <label for="admin-email">Email:</label>
+                        <input type="email" id="admin-email" name="admin_email" required>
+
+                        <label for="admin-password">Password:</label>
+                        <input type="text" id="admin-password" name="admin_password" required>
+
+                        <label for="admin-phone">Phone:</label>
+                        <input type="phone" id="admin-phone" name="phone" required>
+
+                    </div>
+
+                    <div class="form-right">
+                        <label for="admin-role">Role:</label>
+                        <select id="admin-role" name="admin_role" required>
+                            <option value="Admin">Admin</option>
+                        </select>
+
+                        <label for="admin-status">Status:</label>
+                        <select id="admin-status" name="admin_status" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                        <div class="form-actions">
+                            <!-- ปุ่มupdate admin -->
+                            <button type="submit" class="update-button">Update</button>
+                            <button type="button" class="back-button"
+                                onclick="window.location.href='/Administrators'">Back</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const editId = urlParams.get('edit_id'); // Get the editadmin_id from URL
+            console.log(editId);
+            if (editId) {
+                fetch('http://localhost:3030/api/admin') // Fetch admin data from the API
+                    .then(response => response.json())
+                    .then(data => {
+                        // Find the admin matching the ID from the URL
+                        const admin = data.find(p => p.adminid === editId);
+                        if (!admin) {
+                            throw new Error('Admin not found');
+                        }
+
+                        // Populate the form fields with the fetched admin data
+                        document.getElementById('admin-id').value = admin.adminid;
+                        document.getElementById('admin-Username').value = admin.username;
+                        document.getElementById('admin-FirstName').value = admin.firstname;
+                        document.getElementById('admin-LastName').value = admin.lastname;
+                        document.getElementById('admin-email').value = admin.admin_email;
+                        document.getElementById('admin-password').value = admin.admin_password;
+                        document.getElementById('admin-phone').value = admin.phone;
+                        document.getElementById('admin-status').value = admin.admin_status;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching admin:', error);
+                    });
+            } else {
+                console.error('No editadmin_id found in the URL.');
+                alert('Invalid request. No admin ID specified.');
+            }
+        </script>
+
+
+
+    </div>
+</body>
+
+</html>

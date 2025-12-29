@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handbage</title>
+    <link rel="stylesheet" href="women.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Handbage.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="menu-bar">
+            <ul>
+                <li><a href="#">WHAT'S NEW</a></li>
+                <li class="dropdown">
+                    <a href="#">WOMEN</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-columns">
+                            <div class="dropdown-column">
+                                <h4>BAGS</h4>
+                                <ul>
+                                    <li><a href="#">Handbags</a></li>
+                                    <li><a href="#">Saddle Bags</a></li>
+                                    <li><a href="#">Mini Bags</a></li>
+                                    <li><a href="#">Cross-body & Shoulder Bags</a></li>
+                                    <li><a href="#">Tote Bags</a></li>
+                                    <li><a href="#">Hobo Bags</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>SMALL LEATHER GOODS</h4>
+                                <ul>
+                                    <li><a href="#">Card Holders</a></li>
+                                    <li><a href="#">Wallets</a></li>
+                                    <li><a href="#">Wallets on Chain</a></li>
+                                    <li><a href="#">Pouches</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>BRANDS</h4>
+                                <ul>
+                                    <li><a href="#">Celine</a></li>
+                                    <li><a href="#">Chanel</a></li>
+                                    <li><a href="#">Dior</a></li>
+                                    <li><a href="#">Hermes</a></li>
+                                    <li><a href="#">Miu Miu</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="women.png" alt="Fashion Image">
+                        </div>
+                    </div>
+                </li>
+                <li><a href="men.html">MEN</a></li>
+            </ul>
+        </nav>
+        <a href="index.html" class="logo">GADY PADIE</a>
+        <div class="user-actions">
+            <a href="" class="search">
+                <a href="javascript:void(0);" class="search" onclick="toggleSearchBox()">
+                    <img src="icon/icon_search.png" class="im_main" alt="Search Icon">
+                </a>
+            
+                <!-- กล่องค้นหา -->
+                <div class="search-box" id="searchBox" style="display:none;">
+                    <input type="text" class="search-input" placeholder="ค้นหา...">
+                </div>
+                
+                <a class="cart">
+                    <img id="cart-icon" style="cursor: pointer;" onclick="opencart()" src="icon/cart_icon.png" class="im_main" alt="Cart">
+                    <span id="cartcount" class="cart-count" style="display: none;">0</span> <!-- ตัวเลขจำนวนสินค้า -->
+                </a>
+                <a href="#" class="Wishlist">
+                    <img src="icon\2.png" class="im_main" alt="Image" onclick="openWishlist(),displayWishlist()">
+                </a>
+                <a href="#" class="user">
+                    <img src="icon\1.png" class="im_main" alt="Image" onclick="openLogin()">
+                </a>
+            <div class="menu-toggle">
+                <input type="checkbox" id="menuCheckbox" />
+                <label for="menuCheckbox" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="overlay" id="overlay"></div>
+                <ul class="menu" id="menu">
+                    <p class="head_menu">Menu</p>
+                    <li><a href="recommend.html">RECOMMEND <p class="P_back">+</p> </a></li>
+                    <li><a href="whats-new.html">WHAT’S NEW <p class="P_back">+</p></a></li>
+                    <li><a href="women.html">WOMEN <p class="P_back">+</p></a></li>
+                    <li><a href="men.html">MEN <p class="P_back">+</p></a></li>
+                    <li><a href="brands.html">BRANDS <p class="P_back">+</p></a></li>
+
+                    <a href="#"><img src="icon\1.png" class="icon_berger" alt="Image"><p class="icon_berger">ACCOUNT</p></a>
+                    <a href="#"><img src="icon\logo.png" class="icon_berger" alt="Image"><p class="icon_berger">OUR TEAM</p></a>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Login Sidebar -->
+        <div id="login-sidebar" class="login-sidebar">
+            <div class="login-content">
+                <h2>GADY PADIE ACCOUNT</h2>
+                <p>Sign in with your email address and your password</p>
+
+                <label for="email">E-MAIL <span class="star">*</span></label>
+                <input type="email" id="email" required>
+
+                <label for="password">PASSWORD <span class="star">*</span></label>
+                <input type="password" id="password" required>
+
+                <div class="forgot-password-container">
+                    <a href="#" class="forgot-password">Forgot your password?</a>
+                    <button type="submit" class="signin-btn">Sign in</button>
+                </div>
+            
+                <p>Don't have a GADY PADIE account? <br><a href="create_account.html">Create yours now!</a></p>
+            
+                <span class="close-btn" onclick="closeLogin()">X</span>
+            </div>
+        </div>
+        
+
+        <!-- Wishlist-sidebar -->
+        <div id="Wishlist-sidebar" class="Wishlist-sidebar">
+            <div class="Wishlist-content">
+                <h2>Wishlist</h2>
+            </div>
+                <div class="product-wishlist" id="productWishlist">
+
+            </div>
+            <span class="close-btn" onclick="closeWishlist()">X</span>
+        </div>
+    </div>
+
+
+    <!-- ระบบcart -->
+
+
+    <div id="cart" class="cart-container">
+        <br>
+        <div class="cart-header">
+            <h1>Cart</h1>
+            <span class="close-btn" id="close-cart" onclick="closecart()">X</span>
+        </div>
+        <br>
+        <div id="mycart" class="cartlist">
+            
+    
+    
+    </div>
+
+    <div class="cart-footer">
+        <div class="total">
+            <p>Subtotal:</p>
+            <p>85,000.00 THB</p>
+        </div>
+        <button>Check Out</button>
+    </div>
+
+
+
+   
+    </header>
+    <section class="main-content">
+        <aside class="sidebar">
+            <div class="search">
+                <h4>Search</h4>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="filter" id="filter1">
+                <h4>Brands</h4>
+                <label><input type="checkbox"> CELINE</label>
+                <label><input type="checkbox"> CHANEL</label>
+                <label><input type="checkbox"> DIOR</label>
+                <label><input type="checkbox"> HERMES</label>
+                <label><input type="checkbox"> MIUMIU</label>
+            </div>
+            <div class="filter" id="filter1">
+                <h4>Category</h4>
+                <label><input type="checkbox"> Handbags</label>
+                <label><input type="checkbox"> Saddle Bags</label>
+                <label><input type="checkbox"> Mini Bags</label>
+                <label><input type="checkbox"> Cross-body & Shoulder Bags</label>
+                <label><input type="checkbox"> Tote Bags</label>
+                <label><input type="checkbox"> Hobo Bags</label>
+            </div>
+            <div class="filter" id="filter1">
+                <h4>Color</h4>
+                <label><input type="checkbox"> <span class="color black"></span> Black</label>
+                <label><input type="checkbox"> <span class="color brown"></span> Brown</label>
+                <label><input type="checkbox"> <span class="color white"></span> White</label>
+                <label><input type="checkbox"> <span class="color beige"></span> Beige</label>
+                <label><input type="checkbox"> <span class="color gold"></span> Gold</label>
+            </div>
+            <div class="filter" id="filter1">
+                <h4>Price</h4>
+                <p>min Price</p>
+                <input type="text" placeholder="$ 0">
+                <P>Max Price</P>
+                <input type="text" placeholder="$ 500,000.00">
+            </div>
+            
+        </aside>
+        <h1 class="text_women">Handbage</h1>
+        
+        <div id="productlist_women">
+            <div class="products">
+
+            </div>
+        </div>
+        </section>
+        
+        
+    </body>
+    <script>
+        function openLogin() {
+            document.getElementById("login-sidebar").style.transform = "translateX(0)";
+        }
+
+        function closeLogin() {
+            document.getElementById("login-sidebar").style.transform = "translateX(100%)";
+        }
+    </script>
+    <script>
+        function openWishlist() {
+            document.getElementById("Wishlist-sidebar").style.transform = "translateX(0)";
+        }
+
+        function closeWishlist() {
+            document.getElementById("Wishlist-sidebar").style.transform = "translateX(100%)";
+        }
+    </script>
+    
+</html>

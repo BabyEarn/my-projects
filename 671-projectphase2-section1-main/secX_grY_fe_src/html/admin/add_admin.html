@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="admin/add_product.css"> <!----ใช้ css เดียวกันกับProductนะคับบบ-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img class="logo_img" src="logo2.png" alt="Logo">
+                GADY PADIE
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="user">Users</a></li>
+                    <li><a href="admin_product">Product</a></li>
+                    <li class="active"><a href="Administrators">Administrators</a></li>
+                    <li><a href="index">Homepage</a></li>
+                </ul>
+                <form action="http://localhost:3030/logout" method="POST">
+                    <button type="submit" class="logout_bt">LOGOUT</button>
+                  </form>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header>
+                <h1>Add Administrator</h1>
+            </header>
+
+            <section class="add-product-form">
+                <form form id="addForm" action="http://localhost:3030/form_post_admin" method="POST" onsubmit="return submitWithAlert(event);">
+                    <div class="form-left">
+                        <label for="admin-id">Admin ID:</label>
+                        <input type="text" id="admin-id" name="adminid" required>
+
+                        <label for="admin-Username">Username:</label>
+                        <input type="text" id="admin-Username" name="username" required>
+
+                        <label for="admin-FirstName">FirstName:</label>
+                        <input type="text" id="admin-FirstName" name="firstname" required>
+
+                        <label for="admin-LastName">LastName:</label>
+                        <input type="text" id="admin-LastName" name="lastname" required>
+
+                        <label for="admin-email">Email:</label>
+                        <input type="email" id="admin-email" name="admin_email" required>
+
+                        <label for="admin-password">Password:</label>
+                        <input type="password" id="admin-password" name="admin_password" required>
+
+                        <label for="admin-phone">Phone:</label>
+                        <input type="phone" id="admin-phone" name="phone" required>
+
+                    </div>
+                    
+                    <div class="form-right">
+                        <label for="admin-role">Role:</label>
+                        <select id="admin-role" name="admin_role" required>
+                            <option value="Admin">Admin</option>
+                        </select>
+
+                        <label for="admin-status">Status:</label>
+                        <select id="admin-status" name="admin_status" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                        <div class="form-actions">
+                            <button type="submit" class="update-button">Add</button>
+                            <button type="button" class="back-button" onclick="window.location.href='Administrators'">Back</button>
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+        </main>
+    </div>
+</body>
+<script>
+    function submitWithAlert(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = document.getElementById("addForm");
+
+    // Display the SweetAlert
+    Swal.fire({
+        icon: "success",
+        title: "added successfully!",
+        showConfirmButton: false,
+        timer: 1500
+    }).then(() => {
+        // Submit the form programmatically after SweetAlert
+        form.submit();
+    });
+}
+
+
+
+</script>
+</html>

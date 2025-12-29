@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="admin/add_product.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img class="logo_img" src="logo2.png" alt="Logo">
+                GADY PADIE
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="user">Users</a></li>
+                    <li class="active"><a href="admin_product">Product</a></li>
+                    <li><a href="administrators">Administrators</a></li>
+                    <li><a href="index">Homepage</a></li>
+                </ul>
+                <form action="http://localhost:3030/logout" method="POST">
+                    <button type="submit" class="logout_bt">LOGOUT</button>
+                </form>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header>
+                <h1>Add Product</h1>
+            </header>
+
+            <section class="add-product-form">
+                <form form id="addForm" action="http://localhost:3030/form-post" method="POST" enctype="multipart/form-data" onsubmit="return submitWithAlert(event);">
+                    <div class="form-left">
+                        <label for="item-id">ITEM ID</label>
+                        <input type="text" id="item-id" name="item_id" required>
+
+                        <label for="product-name">Product Name</label>
+                        <input type="text" id="product-name" name="product_name" required>
+
+                        <label for="details">Details</label>
+                        <textarea id="details" name="detail" maxlength="500"></textarea>
+
+                        <label for="descriptions">Descriptions</label>
+                        <textarea id="descriptions" name="descriptions" maxlength="500"></textarea>
+
+                        <label for="brand">Brand</label>
+                        <input type="text" id="brand" name="brand">
+
+                        <label>Size</label>
+                        <div class="size-inputs">
+                            <input type="text" placeholder="W" name="W" required>
+                            <input type="text" placeholder="L" name="L" required>
+                            <input type="text" placeholder="H" name="H" required>
+                        </div>
+
+
+                        <label for="weight">Weight</label>
+                        <input type="text" id="weight" name="weight" required>
+
+                        <label for="year">Year</label>
+                        <input type="text" id="year" name="year" required>
+
+                        <label for="color">Color</label>
+                        <input type="text" id="color" name="color" required>
+
+                        <label for="material">Material</label>
+                        <input type="text" id="material" name="material" required>
+
+                        <label for="price">Price (THB)</label>
+                        <input type="text" id="price" name="price" required>
+                    </div>
+
+                    
+                    <div class="form-right">
+                        <div class="photo-upload">
+                            <input type="file" name="images" multiple accept="image/*"  >
+                            <input type="file" name="images" multiple accept="image/*"  >
+                            <input type="file" name="images" multiple accept="image/*"  >
+                            <input type="file" name="images" multiple accept="image/*"  >
+                        </div>
+                        
+                        <label for="condition">Item Condition</label>
+                        <select id="condition" name="condition">
+                            <option>Select Condition</option>
+                            <option>Excellent</option>
+                            <option>Good</option>
+                            <option>normal</option>
+                        </select>
+
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option>Select Category</option>
+                            <option>Bag</option>
+                        </select>
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option>M</option>
+                            <option>W</option>
+                        </select>
+                            
+                        <label for="amount">amount</label>
+                        <input type="text" id="amount" name="amount" required>
+                        <div class="form-actions">
+                            <button type="submit" class="update-button">Add</button>
+                            <button type="button" class="back-button" onclick="window.location.href='admin_product'">Back</button>
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+        </main>
+    </div>
+</body>
+<script>
+    function submitWithAlert(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = document.getElementById("addForm");
+
+    // Display the SweetAlert
+    Swal.fire({
+        icon: "success",
+        title: "added successfully!",
+        showConfirmButton: false,
+        timer: 1500
+    }).then(() => {
+        // Submit the form programmatically after SweetAlert
+        form.submit();
+    });
+}
+
+</script>
+</html>

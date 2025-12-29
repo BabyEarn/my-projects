@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="admin/admin_product.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img class="logo_img" src="logo2.png" alt="Logo">
+                GADY PADIE
+            </div>
+            <nav>   
+                <ul>
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="user">Users</a></li>
+                    <li class="active"><a href="admin_product">Product</a></li>
+                    <li><a href="administrators">Administrators</a></li>
+                    <li><a href="index">Homepage</a></li>
+                </ul>
+                <form action="http://localhost:3030/logout" method="POST">
+                    <button type="submit" class="logout_bt">LOGOUT</button>
+                </form>
+
+            </nav>
+        </aside> 
+        
+        <main class="main-content">
+            <header>
+                <h1>Product</h1>
+                <button class="add-product-button" onclick="window.location.href='add_product'">Add Product</button>
+            </header>
+        
+            <section class="product-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Product ID</th>
+                            <th>Name</th>
+                            <th>Brand</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product_result">
+                        <!-- Products will be rendered here -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        
+    </div>
+    <script src="admin/showproduct.js"> </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!-- สำหรับuser mockup-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>create_account</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="user/styles_createaccount.css" />
+        <link rel="stylesheet" href="user/header.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="menu-bar">
+                    <ul>
+                        <li><a href="/index">WHAT'S NEW</a></li>
+                        <li class="dropdown">
+                            <a href="/women">WOMEN</a>
+                            <div class="dropdown-content">
+                                <div class="dropdown-column">
+                                    <h4>BAGS</h4>
+                                    <ul>
+                                        <li><a href="#">Handbags</a></li>
+                                        <li><a href="#">Saddle Bags</a></li>
+                                        <li><a href="#">Mini Bags</a></li>
+                                        <li><a href="#">Cross-Body & Shoulder Bags</a></li>
+                                        <li><a href="#">Tote Bags</a></li>
+                                        <li><a href="#">Hobo Bags</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>SMALL LEATHER GOODS</h4>
+                                    <ul>
+                                        <li><a href="#">Card Holders</a></li>
+                                        <li><a href="#">Wallets</a></li>
+                                        <li><a href="#">Wallets on Chain</a></li>
+                                        <li><a href="#">Pouches</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>BRANDS</h4>
+                                    <ul>
+                                        <li><a href="#">Celine</a></li>
+                                        <li><a href="#">Chanel</a></li>
+                                        <li><a href="#">Dior</a></li>
+                                        <li><a href="#">Hermes</a></li>
+                                        <li><a href="#">Miu Miu</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="/men">MEN</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <a href="index" class="logo">GADY PADIE</a>
+        <div class="user-actions">
+            
+            <a href="#" class="user">
+                <img src="user (1).png" class="im_main_wi" alt="Image" onclick="openLogin()">
+            </a>
+                
+
+            <!-- Login Sidebar -->
+            <div id="login-sidebar" class="login-sidebar">
+                <div class="login-content">
+                    <h2>GADY PADIE ACCOUNT</h2>
+                    <p>Sign in with your email address and your password</p>
+                        <form action="http://localhost:3030/account_post" method="POST" onsubmit="return checkCaptcha()">
+                            <label for="email">E-MAIL <span class="star">*</span></label>
+                            <input type="email" id="email" name="email" required>
+    
+                            <label for="password">PASSWORD <span class="star">*</span></label>
+                            <input type="password" id="password" name="password" required>
+                            <div class="g-recaptcha" data-sitekey="6LdCzowqAAAAAGdgIFCiGYBwQpau5_MNfZTJrkrb"></div>
+                            <div class="forgot-password-container">
+                                <a href="#" class="forgot-password">Forgot your password?</a>
+                                <button type="submit" class="signin-btn">Sign in</button>
+                            </div>
+                        </form>
+                    <p>Don't have a GADY PADIE account? <br><a href="create_account">Create yours now!</a></p>
+                
+                    <span class="close-btn" onclick="closeLogin()">X</span>
+                </div>
+            </div>
+
+        </header>
+        <div class="CREATE-AN-ACCOUNT"><br><br><br>
+            <div class="text-wrapper">CREATE AN ACCOUNT</div>
+            <p class="text-wrapper2">By creating an account, you agree to accept the General Terms and Conditions of Use and that your data will be processed in compliance with the Privacy Policy of GADYPADIE.</p>
+            <br>
+                <div class="div-wrapper">
+                    <form class="form">
+                        <div class="container">
+                            <!-- ซ้าย: LOGIN INFORMATION , PERSONAL INFORMATION -->
+                            <div class="left-section">
+                                <div class="section">
+                                    <p>LOGIN INFORMATION</p>
+                                    <label for="email">E-mail *</label><br>
+                                    <input type="email" id="email" name="email" required placeholder="email"><br>
+                    
+                                    <label for="tel">Telephone number *</label><br>
+                                    <input type="tel" id="tel" name="tel" required placeholder="Telephone number"><br>
+                    
+                                    <label for="password">Password *</label><br>
+                                    <input type="password" id="password" name="password" required placeholder="password"><br>
+
+                                   
+                                    <label for="Verificationcode">Verification code *</label><br>
+                                    <input type="Verificationcode" id="Verification code" name="password" required placeholder="Verification code *">
+                                    <button class="SendCode">Send Code</button>
+                                </div>
+                    
+                                <div class="section">
+                                    <p>PERSONAL INFORMATION</p>
+                                    <label for="Title">Title *</label><br>
+                                    <input type="text" id="Title" name="Title" required placeholder="Title"><br>
+                                    <label for="First name">First name *</label><br>
+                                    <input type="text" id="First name" name="First name" required placeholder="First name"><br>
+                                    <label for="Last name">Last name *</label><br>
+                                    <input type="text" id="Last name" name="Last name" required placeholder="Last name"><br>
+                                    <label for="start">Date of birth</label> <br>
+                                    <input type="date" id="Date of birth" required name="trip-start">
+                                </div>
+                            </div>
+                    
+                            
+                            <div class="vertical-line"></div>
+                    
+                            <!-- ขวา: BILLING INFORMATION -->
+                            <div class="right-section">
+                                <p>BILLING INFORMATION</p>
+                                <input type="text" id="Country" name="Country" required placeholder="Country *"><br>
+                                <input type="text" id="Address" name="Address" required placeholder="Address *"><br>
+                                <input type="text" id="Province" name="Province" required placeholder="Province *"><br>
+                                <input type="text" id="District" name="District" required placeholder="District *"><br>
+                                <input type="text" id="Zip code" name="Zip code" required placeholder="Zip code *"><br>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" required>
+                        <label for="vehicle1" class="text_Iagree"> I agree and consent to the collection, use, processing, disclosure and transfer (in and outside of Thailand)
+                            of my personal data for the purpose to receive information concerning offers, services, products or events
+                            (“Promotional Communications”) from GADYPADIE (Bangkok) Company Limited in accordance with the Privacy
+                            Policy. I acknowledge and understand that I may withdraw my consent with future effect subject to applicable
+                            laws and terms of the Privacy Policy.</label><br>
+
+                        <div class="button-container">
+                        <button class="CREATEANACCOUNT">CREATE AN ACCOUNT</button>
+                        </div>
+                    </form>
+                    
+                </div>
+                   
+            </div>
+
+            <script>
+                function handleAccountClick() {
+                    // เปิด Login Sidebar
+                    openLogin();
+                
+                    // ปิด hamburger menu โดยการ uncheck checkbox
+                    document.getElementById("menuCheckbox").checked = false;
+                    }
+                function openLogin() {
+                    document.getElementById("login-sidebar").style.transform = "translateX(0)";
+                }
+        
+                function closeLogin() {
+                    document.getElementById("login-sidebar").style.transform = "translateX(100%)";
+                }
+            </script>
+                                   
+                    
+    
+    </body>
+</html>

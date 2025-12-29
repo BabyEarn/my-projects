@@ -1,0 +1,390 @@
+/*เรียก css ผ่านclass เพื่อตกแต่งให้สวยงาม*/
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond';
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    margin: auto;
+   
+}
+.shipping-method ,.delivery-section{
+    display: flex;
+}
+
+.shipping-method {
+    display: flex;
+    flex-direction: column; /* จัดให้ตัวเลือกแต่ละตัวอยู่คนละบรรทัด */
+    margin-left: 30px;
+}
+
+
+
+.shipping-method label {
+    display: flex;
+    align-items: center;  
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.content{
+    margin: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    background-color: #EBE6E0;
+    padding: 20px;
+    
+}
+
+.back-button {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    font-size: 24px;
+    color: #666;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.account-section, .delivery-section, .payment-section, .summary-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #BDB3A7;
+    font-size: 20px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.left-column {
+    flex: 2;
+}
+
+.right-column {
+    flex: 1;
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.address p, .billing-address p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.shipping-method label, .payment-methods label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    background: #EBE6E0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* สไตล์สำหรับภาพของ item */
+.item-image {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* สไตล์สำหรับรายละเอียดของ item */
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* Container ของราคาและ QTY */
+.item-price-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ราคาสินค้า */
+.item-price {
+    color: #333;
+    margin: 0;
+    padding-right: 140px;
+}
+
+/* QTY */
+.item-quantity {
+    margin: 0;
+    text-align: right;
+    color: #333;
+}
+
+
+
+
+
+.pay-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.pay-button:hover {
+    background-color: #444;
+}
+
+
+.Creditcard ,.QR{
+    background-color: #EBE6E0;
+    height: 50px;
+    margin: auto;
+}
+
+
+.payment-methods .payment-option {
+    display: flex;
+    align-items: center;
+    background-color: #EBE6E0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.payment-methods{
+    margin-top: 30px;
+}
+
+.payment-methods .payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-methods .payment-option img {
+    height: 20px;
+    margin-right: 8px;
+}
+
+.payment-methods .payment-option:hover {
+    background-color: #e0dcd7;
+}
+
+/* Base styles for mobile */
+.qr-popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 20px; /* เพิ่ม padding เพื่อไม่ให้ติดขอบ */
+}
+
+.qr-popup-content {
+    width: 100%;
+    max-width: 300px; /* ตั้งค่าให้ไม่เกิน 300px สำหรับการแสดงผลที่ดีบนมือถือ */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow-y: auto; /* เพื่อให้สามารถเลื่อนเนื้อหาได้ถ้ามีการแสดงข้อความมาก */
+}
+
+.qr_img {
+    text-align: center;
+    background-color: #003b6d;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: white;
+    max-width: 100%; /* ปรับให้ขยายเต็มที่ */
+}
+
+.qr_img h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.qr_img img {
+    width: 100%; /* ให้ภาพ QR ขยายตามขนาดที่เหมาะสม */
+    height: auto; /* รักษาสัดส่วนของภาพ */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+.remark {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.button-group .save-btn,
+.button-group .ok-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* ให้ปุ่มกว้างเต็มขนาด */
+}
+
+.save-btn {
+    background-color: #333;
+    color: white;
+}
+
+.ok-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+
+
+
+
+/* Styles สำหรับ mobile */
+@media (max-width: 768px) {
+    /* จัด layout เป็นแนวตั้ง */
+    .main-content {
+        flex-direction: column;
+    }
+    .qr-popup-content {
+        max-width: 300px; /* สำหรับหน้าจอใหญ่ขึ้น */
+    }
+
+    .qr_img img {
+        width: 200px; /* สำหรับรูปที่ใหญ่กว่า */
+    }
+
+    .button-group {
+        flex-direction: row;
+    }
+
+    .button-group .save-btn,
+    .button-group .ok-btn {
+        width: auto; /* ให้ปุ่มมีขนาดตามเนื้อหาสำหรับหน้าจอใหญ่ */
+    }
+    
+
+    .left-column, .right-column {
+        width: 100%;
+    }
+
+    /* ลดขนาด font และ padding */
+    header h1 {
+        font-size: 20px;
+    }
+
+    .back-button {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    section h3 {
+        font-size: 16px;
+    }
+
+    /* ปรับให้ section ต่างๆ มี padding น้อยลง */
+    .content, .account-section, .delivery-section, .payment-section, .summary-section {
+        padding: 10px;
+    }
+
+    .shipping-method ,.delivery-section{
+        margin-left: 0px;
+        flex-direction: column;
+    }
+
+   
+    
+    .item-price {
+        padding-right: 80px;
+    }
+
+    /* ปรับขนาดและระยะห่างของปุ่ม */
+    .pay-button {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+
+    /* ซ่อน label ไอคอนบางอันถ้าจำเป็น */
+    .payment-option img {
+        width: 40px;
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!-- ไม่มีในรีเควสเม้น-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Book</title>
+  <link rel="stylesheet" href="user/add_address.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="#" class="back">← BACK</a>
+      <h1>GADY PADIE</h1>
+    </header>
+    
+    <section class="address-section">
+      <h2>ADDRESS BOOK</h2>
+      <p>Add, delete or change your addresses here.</p>
+      
+      <div class="default-address">
+        <h3>★ DEFAULT ADDRESS</h3> 
+        <p>Ms. Gady Padie</p> <!-- ดึงเอาชื่อผู้ใช้จากSQLนะคับบบ -->
+        <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom 73170 Thailand</p> <!-- ดึงเอาที่อยู่จากตอนสร้างผู้ใช้จากSQLนะคับบบ -->
+        <p>+66999999999</p>
+        <button class="edit">Edit</button>
+      </div>
+
+      <form class="address-form">
+        <label>
+          <input type="checkbox" name="default">
+          Define as default address
+        </label>
+        
+        <div class="form-row">
+          <input type="text" placeholder="Title *" required>
+        </div>
+        
+        <div class="form-row">
+          <input type="text" placeholder="First name *" required>
+          <input type="text" placeholder="Last name *" required>
+        </div>
+        
+        <div class="form-row">
+          <input type="text" placeholder="Address *" required>
+        </div>
+        
+        <div class="form-row">
+          <input type="text" placeholder="District *" required>
+          <input type="text" placeholder="Province *" required>
+        </div>
+        
+        <div class="form-row">
+          <input type="text" placeholder="Country *" required>
+          <input type="text" placeholder="Zip code *" required>
+        </div>
+        
+        <div class="form-row">
+          <span>+66</span>
+          <input type="text" placeholder="Telephone number *" required>
+        </div>
+        
+        <div class="form-buttons">
+          <button type="button" class="cancel">Cancel</button>
+          <button type="submit" class="save">Save</button>
+        </div>
+      </form>
+
+    </section>
+  </div>
+</body>
+</html>

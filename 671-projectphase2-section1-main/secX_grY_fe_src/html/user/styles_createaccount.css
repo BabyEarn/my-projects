@@ -1,0 +1,142 @@
+*{
+    font-weight: 300;
+    font-family: 'Cormorant Garamond';
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f7f5;
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.CREATE-AN-ACCOUNT {
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+/* จัด layout โดยใช้ flexbox */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* ส่วนซ้าย */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    width: 45%; /* ความกว้างของส่วนซ้าย */
+}
+
+/* เส้นคั่นกลาง */
+.vertical-line {
+    width: 1px;
+    background-color: #BDB3A7; /* สีของเส้น */
+    height: 100%;
+    margin: 0 20px;
+    min-height: 900px; /* กำหนดความสูงขั้นต่ำ */
+}
+
+/* ส่วนขวา */
+.right-section {
+    width: 45%; /* ความกว้างของส่วนขวา */
+}
+
+/* Input styling */
+input[type=email], input[type=password], input[type=tel], input[type=text],input[type=date] {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+.SendCode {
+    width: 19%;
+    height: 50px;
+    background-color: #413b3b;
+    border: 1.2px solid;
+    color: white;
+    cursor: pointer;
+}
+
+.SendCode:hover , .CREATEANACCOUNT:hover{
+    background-color: #B5ACAC;
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 20px;
+}
+
+input[type=Verificationcode] {
+    width: 60%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+.div-wrapper {
+    background-color: #EBE6E0;
+    font-size: 20px;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.div-wrapper .LOGIN_IN{
+   /* background-color: blueviolet; */ /*เอาไว้เช็คว่าส่วนนี้อยู่ส่วนไหนและกินพื้นที่มากแค่ไหนในหน้า*/
+    display: block;
+    border: none;
+}
+
+.text-wrapper{
+    font-size: 36px;
+}
+
+.text_Iagree{
+    font-size: 15px;
+    margin: 10px;
+}
+
+
+.CREATEANACCOUNT{
+    width: 40%;
+    height: 50px;
+    background-color: #413b3b;
+    border: 1.2px solid;
+    color: white;
+    cursor: pointer;
+    
+    
+}
+
+.button-container{
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .CREATEANACCOUNT {
+        width: 60%; /* ขยายปุ่มให้ใหญ่ขึ้นบนหน้าจอแท็บเล็ต */
+        font-size: 16px; /* ปรับขนาดตัวอักษร */
+    }
+}
+
+/* สำหรับหน้าโทรศัพท์มือถือ */
+@media (max-width: 480px) {
+    .CREATEANACCOUNT {
+        width: 80%; /* ขยายปุ่มให้ใหญ่ขึ้นบนหน้าจอโทรศัพท์ */
+        font-size: 14px; /* ปรับขนาดตัวอักษรให้เล็กลง */
+        height: 45px; /* ปรับความสูงของปุ่ม */
+    }
+    input[type=email], input[type=password], input[type=tel], input[type=text] {
+        width: 90%; /* ปรับขนาด input ให้ใหญ่ขึ้น */
+    }
+}

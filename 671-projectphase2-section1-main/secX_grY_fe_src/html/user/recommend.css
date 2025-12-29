@@ -1,0 +1,215 @@
+/*เรียก css ผ่านclassและID เพื่อตกแต่งให้สวยงาม*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond';
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.main-content {
+    display: flex;
+    padding: 40px;
+    margin-top: -30px;
+}
+
+.sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.sidebar h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.sidebar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.filter label {
+    display: block;
+    margin-bottom: 10px;
+    
+    font-size:10px;
+}
+
+.filter label input {
+    margin-right: 10px;
+}
+
+.color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.color.black {
+    background-color: #000;
+}
+
+.color.brown {
+    background-color: #8b4513;
+}
+
+.color.white {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.color.beige {
+    background-color: #f5f5dc;
+}
+
+.color.gold {
+    background-color: #ffd700;
+}
+
+
+.product-item:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+.product-item{
+    cursor: pointer;
+    text-align: left; 
+}
+
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+
+.product-item p {
+    color: #000000;
+    margin-top: 20px;
+}
+
+
+.price{
+  font-weight: 900;
+  margin: 10px 0 5px;
+}
+
+.text_women{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond';
+    color: #000000;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+
+
+#productlist_recommend .product-item img {
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
+    object-fit: contain; 
+    margin: 0 auto; 
+    display: block;
+    border-radius: 10px; 
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+#filter1 , .search{
+    border-bottom: 1px solid #C3C3C3;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+#productlist_recommend .products {
+    display: grid;
+    gap: 16px; /* ระยะห่างระหว่างสินค้า */
+    grid-template-columns: repeat(4, 1fr); /* ค่าพื้นฐานสำหรับหน้าจอใหญ่ */
+}
+
+@media (max-width: 1024px) {
+    #productlist_recommend .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #productlist_recommend .product-item img {
+        width: 100%; /* ให้รูปภาพปรับขนาดตามความกว้างของคอนเทนเนอร์ */
+        max-width: 200px; /* กำหนดขนาดสูงสุดของรูปภาพ สามารถปรับได้ตามต้องการ */
+        height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+        object-fit: contain; /* ปรับให้รูปภาพพอดีกับพื้นที่โดยไม่ถูกตัด */
+        margin: 0 auto; /* จัดกึ่งกลางรูปภาพในแต่ละ item */
+        display: block;
+    }
+    .sidebar {
+        width: 30%; /* ปรับให้กว้างขึ้นเล็กน้อยบนจอขนาดกลาง */
+        padding: 15px; /* ลด padding ให้น้อยลง */
+    }
+    
+}
+
+@media (max-width: 768px) {
+    #productlist_recommend .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #productlist_recommend .product-item img {
+        width: 100%; /* ให้รูปภาพปรับขนาดตามความกว้างของคอนเทนเนอร์ */
+        max-width: 200px; /* กำหนดขนาดสูงสุดของรูปภาพ สามารถปรับได้ตามต้องการ */
+        height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+        object-fit: contain; /* ปรับให้รูปภาพพอดีกับพื้นที่โดยไม่ถูกตัด */
+        margin: 0 auto; /* จัดกึ่งกลางรูปภาพในแต่ละ item */
+        display: block;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    #productlist_recommend .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #productlist_recommend .product-item img {
+        width: 100%; /* ให้รูปภาพปรับขนาดตามความกว้างของคอนเทนเนอร์ */
+        max-width: 200px; /* กำหนดขนาดสูงสุดของรูปภาพ สามารถปรับได้ตามต้องการ */
+        height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+        object-fit: contain; /* ปรับให้รูปภาพพอดีกับพื้นที่โดยไม่ถูกตัด */
+        margin: 0 auto; /* จัดกึ่งกลางรูปภาพในแต่ละ item */
+        display: block;
+    }
+    
+}
+
+  

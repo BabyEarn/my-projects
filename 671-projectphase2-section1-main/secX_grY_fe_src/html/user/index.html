@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GADY PADIE</title>
+    <link rel="stylesheet" href="user/styles_index.css">
+    <link rel="stylesheet" href="user/header.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="user/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    
+    <header>
+        <!-- menu-bar สำหรับไปหน้าต่างๆ -->
+        <nav class="menu-bar">
+            <ul>
+                <li><a href="#">WHAT'S NEW</a></li>
+                <li class="dropdown">
+                    <a href="women">WOMEN</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-columns">
+                            <div class="dropdown-column">
+                                <h4>BAGS</h4>
+                                <ul>
+                                    <li><a href="#">Handbags</a></li>
+                                    <li><a href="#">Saddle Bags</a></li>
+                                    <li><a href="#">Mini Bags</a></li>
+                                    <li><a href="#">Cross-body & Shoulder Bags</a></li>
+                                    <li><a href="#">Tote Bags</a></li>
+                                    <li><a href="#">Hobo Bags</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>SMALL LEATHER GOODS</h4>
+                                <ul>
+                                    <li><a href="#">Card Holders</a></li>
+                                    <li><a href="#">Wallets</a></li>
+                                    <li><a href="#">Wallets on Chain</a></li>
+                                    <li><a href="#">Pouches</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>BRANDS</h4>
+                                <ul>
+                                    <li><a href="#">Celine</a></li>
+                                    <li><a href="#">Chanel</a></li>
+                                    <li><a href="#">Dior</a></li>
+                                    <li><a href="#">Hermes</a></li>
+                                    <li><a href="#">Miu Miu</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="user/women.png" alt="Fashion Image">
+                        </div>
+                    </div>
+                </li>
+                <li><a href="men">MEN</a></li>
+            </ul>
+        </nav>
+        
+        <a href="index" class="logo">GADY PADIE</a>
+
+        <!-- icon สำหรับเข้า login ,cart,ค้นหาสินค้า -->
+        <div class="user-actions">
+            <a href="javascript:void(0);" class="search-icon" onclick="toggleSearchBox()">
+                <img src="icon_search.png" class="im_main" alt="Search Icon">
+            </a>
+            <!-- ป๊อปอัพกล่องค้นหา -->
+            <div class="search-popup" id="searchPopup" style="display: none;">
+                <div class="search-popup-content">
+                    <!-- Form ค้นหาสินค้า-->
+                    <form>
+                    <span class="close-btn" onclick="toggleSearchBox()">&times;</span>
+                    <input type="text" class="search-input" placeholder="ค้นหา..." name="searchinput">
+                    <button class="search-button" type="submit">ค้นหา</button>
+                    </form>
+                </div>
+            </div>
+
+
+                <!--Icon cart -->
+                <a class="cart">
+                    <img id="cart-icon" style="cursor: pointer;" onclick="opencart()" src="shopping-cart.png" class="im_main_wi" alt="Cart">
+                    <span id="cartcount" class="cart-count" style="display: none;">0</span> <!-- ตัวเลขจำนวนสินค้า -->
+                </a>
+                <!-- icon Wishlist-->
+                <a href="#" class="Wishlist">
+                    <img src="heart.png" class="im_main_wi" alt="Image" onclick="openWishlist(),displayWishlist()">
+                </a>
+                <!-- icon login-->
+                <a href="#" class="user">
+                    <img src="user (1).png" class="im_main_wi" alt="Image" onclick="openLogin()">
+                </a>
+
+            <!-- แฮมเบอร์เกอร์-->
+            <div class="menu-toggle">
+                <input type="checkbox" id="menuCheckbox" />
+                <label for="menuCheckbox" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="overlay" id="overlay"></div>
+                <ul class="menu" id="menu">
+                    <p class="head_menu">Menu</p>
+                    <li><a href="recommend">RECOMMEND <p class="P_back"> </p> </a></li>
+                    <li><a href="index">WHAT’S NEW <p class="P_back"> </p></a></li>
+                    <li><a href="women">WOMEN <p class="P_back"> </p></a></li>
+                    <li><a href="men">MEN <p class="P_back"> </p></a></li>
+                    <li><a href="brands">BRANDS <p class="P_back"> </p></a></li>
+                    
+                    <li><a href="#" onclick="handleAccountClick()" class="icon_berger-container">
+                        <img src="1.png" alt="Image">
+                        <p>ACCOUNT</p>
+                    </a></li>
+                    <li><a href="ourteam" class="icon_berger-container">
+                        <img src="logo2.png" alt="Image">
+                        <p>OUR TEAM</p>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- Login Sidebar -->
+        <div id="login-sidebar" class="login-sidebar">
+            <div class="login-content">
+                <h2>GADY PADIE ACCOUNT</h2>
+                <p>Sign in with your email address and your password</p>
+                    <form action="http://localhost:3030/account_post" method="POST" onsubmit="return checkCaptcha()">
+                        <label for="email">E-MAIL <span class="star">*</span></label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="password">PASSWORD <span class="star">*</span></label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="g-recaptcha" data-sitekey="6LdCzowqAAAAAGdgIFCiGYBwQpau5_MNfZTJrkrb"></div>
+                        <div class="forgot-password-container">
+                            <a href="#" class="forgot-password">Forgot your password?</a>
+                            <button type="submit" class="signin-btn">Sign in</button>
+                        </div>
+                    </form>
+                <p>Don't have a GADY PADIE account? <br><a href="create_account">Create yours now!</a></p>
+            
+                <span class="close-btn" onclick="closeLogin()">X</span>
+            </div>
+        </div>
+
+
+
+
+            <!-- Wishlist-sidebar -->
+            <div id="Wishlist-sidebar" class="Wishlist-sidebar">
+                <div class="Wishlist-content">
+                    <h2>Wishlist</h2>
+                </div>
+                    <div class="product-wishlist" id="productWishlist">
+
+                </div>
+                <span class="close-btn" onclick="closeWishlist()">X</span>
+            </div>
+        </div>
+
+
+    </header>
+    
+
+    
+
+    <!-- slideshow รูปภาพ-->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="user/main.png" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+          <img src="user/main3.png" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+          <img src="user/main2.png" style="width:100%">
+        </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+    </div>
+
+    <!-- ข้อความใหญ่ข้างหน้า-->
+    <div class="hero-text">
+        <h1>ITEM FOR YOU</h1>
+        <div class="tabs">
+            <a href="index">WHAT'S NEW</a>
+            <a href="recommend">RECOMMEND</a>
+        </div>
+    </div>
+
+
+    <!-- ส่วนของการแสดงสินค้าที่มาจากฐานข้อมูล-->
+    <div class="conter">
+        <section class="sidebar">
+            <div id="productlist" class="product">
+                
+                
+            </div>
+        </section>
+    </div>
+
+
+
+
+     <!-- ระบบcart -->
+     <div id="cart" class="cart-container">
+        <br>
+        <div class="cart-header">
+            <h1>Cart</h1>
+            <span class="close-btn" id="close-cart" onclick="closecart()">X</span>
+        </div>
+        <br>
+        <div id="mycart" class="cartlist">
+            <!-- ส่วนของการแสดงสินค้าในรถเข็น-->
+    
+    
+    </div>
+    <div class="cart-footer">
+        <div class="total">
+            <p>Subtotal:</p>
+            <p>85,000.00 THB</p>
+        </div>
+        <button>Check Out</button>
+    </div>
+    
+   
+    <!-- script เรียกใช้ฟังชั่น-->
+    <script src="user/slideshow.js"></script>
+    <script>
+        function handleAccountClick() {
+            // เปิด Login Sidebar
+            openLogin();
+        
+            // ปิด hamburger menu โดยการ uncheck checkbox
+            document.getElementById("menuCheckbox").checked = false;
+            }
+        function openLogin() {
+            document.getElementById("login-sidebar").style.transform = "translateX(0)";
+        }
+
+        function closeLogin() {
+            document.getElementById("login-sidebar").style.transform = "translateX(100%)";
+        }
+    </script>
+    <script>
+        function openWishlist() {
+            document.getElementById("Wishlist-sidebar").style.transform = "translateX(0)";
+        }
+
+        function closeWishlist() {
+            document.getElementById("Wishlist-sidebar").style.transform = "translateX(100%)";
+        }
+    </script>
+
+    <script>
+        // เก็บข้อมูลการเยี่ยมชม
+        const visitKey = 'site_visit';
+        let visitors = JSON.parse(localStorage.getItem(visitKey)) || { newVisitors: 0, returningVisitors: 0 };
+
+        // ตรวจสอบว่าเป็นผู้เข้าชมใหม่หรือไม่
+        if (!localStorage.getItem('hasVisited')) {
+        // ผู้เข้าชมใหม่
+            visitors.newVisitors += 1;
+            localStorage.setItem('hasVisited', 'true'); // ทำเครื่องหมายว่าเยี่ยมชมแล้ว
+        } else {
+        // ผู้เข้าชมซ้ำ
+            visitors.returningVisitors += 1;
+            }
+
+            // อัปเดตข้อมูลใน Local Storage
+        localStorage.setItem(visitKey, JSON.stringify(visitors));
+    </script>
+  
+    
+
+</body>
+</html>

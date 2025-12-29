@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GADY PADIE</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="user/style_product.css" />
+        <link rel="stylesheet" href="user/header.css" />
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="user/productlist_men.js"></script>
+        <script src="user/product_women.js"></script>
+        <script src="user/recommend.js"></script>
+        <script src="user/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </head>
+    
+    <body>
+        <header>
+            <nav class="menu-bar">
+                <ul>
+                    <li><a href="index">WHAT'S NEW</a></li>
+                    <li class="dropdown">
+                        <a href="women">WOMEN</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>BAGS</h4>
+                                    <ul>
+                                        <li><a href="#">Handbags</a></li>
+                                        <li><a href="#">Saddle Bags</a></li>
+                                        <li><a href="#">Mini Bags</a></li>
+                                        <li><a href="#">Cross-body & Shoulder Bags</a></li>
+                                        <li><a href="#">Tote Bags</a></li>
+                                        <li><a href="#">Hobo Bags</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>SMALL LEATHER GOODS</h4>
+                                    <ul>
+                                        <li><a href="#">Card Holders</a></li>
+                                        <li><a href="#">Wallets</a></li>
+                                        <li><a href="#">Wallets on Chain</a></li>
+                                        <li><a href="#">Pouches</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>BRANDS</h4>
+                                    <ul>
+                                        <li><a href="#">Celine</a></li>
+                                        <li><a href="#">Chanel</a></li>
+                                        <li><a href="#">Dior</a></li>
+                                        <li><a href="#">Hermes</a></li>
+                                        <li><a href="#">Miu Miu</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown-image">
+                                <img src="women.png" alt="Fashion Image">
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="men">MEN</a></li>
+                </ul>
+            </nav>
+            <a href="index" class="logo">GADY PADIE</a>
+            <div class="user-actions">
+
+
+
+                <a class="cart">
+                    <img id="cart-icon" style="cursor: pointer;" onclick="opencart()" src="shopping-cart.png" class="im_main_wi" alt="Cart">
+                    <span id="cartcount" class="cart-count" style="display: none;">0</span> <!-- ตัวเลขจำนวนสินค้า -->
+                </a>
+            <a href="#" class="Wishlist">
+                <img src="heart.png" class="im_main_wi" alt="Image" onclick="openWishlist(),displayWishlist()">
+            </a>
+            <a href="#" class="user">
+                <img src="user (1).png" class="im_main_wi" alt="Image" onclick="openLogin()">
+            </a>
+                <div class="menu-toggle">
+                    <input type="checkbox" id="menuCheckbox" />
+                    <label for="menuCheckbox" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <div class="overlay" id="overlay"></div>
+                    <ul class="menu" id="menu">
+                        <p class="head_menu">Menu</p>
+                        <li><a href="recommend">RECOMMEND <p class="P_back"> </p> </a></li>
+                        <li><a href="index">WHAT’S NEW <p class="P_back"> </p></a></li>
+                        <li><a href="women">WOMEN <p class="P_back"> </p></a></li>
+                        <li><a href="men">MEN <p class="P_back"> </p></a></li>
+                        <li><a href="brands">BRANDS <p class="P_back"> </p></a></li>
+    
+                        <li><a href="#" onclick="handleAccountClick()" class="icon_berger-container">
+                            <img src="1.png" alt="Image">
+                            <p>ACCOUNT</p>
+                        </a></li>
+                        <li><a href="ourteam" class="icon_berger-container">
+                            <img src="logo2.png" alt="Image">
+                            <p>OUR TEAM</p>
+                        </a></li>
+                    </ul>
+    
+                </div>
+            </div>
+    
+            <!-- Login Sidebar -->
+            <div id="login-sidebar" class="login-sidebar">
+                <div class="login-content">
+                    <h2>GADY PADIE ACCOUNT</h2>
+                    <p>Sign in with your email address and your password</p>
+                        <form action="http://localhost:3030/account_post" method="POST" onsubmit="return checkCaptcha()">
+                            <label for="email">E-MAIL <span class="star">*</span></label>
+                            <input type="email" id="email" name="email" required>
+    
+                            <label for="password">PASSWORD <span class="star">*</span></label>
+                            <input type="password" id="password" name="password" required>
+                            <div class="g-recaptcha" data-sitekey="6LdCzowqAAAAAGdgIFCiGYBwQpau5_MNfZTJrkrb"></div>
+                            <div class="forgot-password-container">
+                                <a href="#" class="forgot-password">Forgot your password?</a>
+                                <button type="submit" class="signin-btn">Sign in</button>
+                            </div>
+                        </form>
+                    <p>Don't have a GADY PADIE account? <br><a href="create_account">Create yours now!</a></p>
+                
+                    <span class="close-btn" onclick="closeLogin()">X</span>
+                </div>
+            </div>
+
+            <!-- Wishlist-sidebar -->
+        <div id="Wishlist-sidebar" class="Wishlist-sidebar">
+            <div class="Wishlist-content">
+                <h2>Wishlist</h2>
+            </div>
+                <div class="product-wishlist" id="productWishlist">
+
+                </div>
+
+                
+
+            
+            
+                <span class="close-btn" onclick="closeWishlist()">X</span>
+            </div>
+        </div>
+    
+    
+    
+        </header>
+    
+
+
+        <div class="container">
+            <div class="in-wishlist">
+                <div class="product-container">
+                    <a href="index" class="back-button">BACK</a> 
+                    <img class="product-img" src="" alt="Product Image">
+                    <div class="thumbnail-container">
+                        <!-- ภาพขนาดเล็กจะอยู่ที่นี่ -->
+                </div>
+
+                
+                </div>
+                
+                <div class="details">
+                    <h2 class="product-name"> </h2>
+                    <p class="product-description">
+                        
+                    </p>
+                    
+                    <div class="price"> </div>
+                    
+                    
+        
+                    <table class="info-table"> 
+                        <tr>
+                            <br>
+                            <p class="txt_DATAILS">DATAILS</p>
+                            <th> </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <td> </td>
+                        </tr>
+                    </table>
+                    <div class="actions">
+                        <button onclick="addToWishlist(getProductIndex())" class="wishlist">❤ In Wishlist</button>
+                        <button onclick="addtocart(getProductIndex())" class="cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+        
+        <!-- ระบบcart -->
+
+
+        <div id="cart" class="cart-container">
+            <br>
+            <div class="cart-header">
+                <h1>Cart</h1>
+                <span class="close-btn" id="close-cart" onclick="closecart()">X</span>
+            </div>
+            <br>
+            <div id="mycart" class="cartlist">
+                
+        
+        
+        </div>
+
+        <div class="cart-footer">
+            <div class="total">
+                <p>Subtotal:</p>
+                <p>85,000.00 THB</p>
+            </div>
+            <button>Check Out</button>
+        </div>
+
+
+
+         
+
+
+
+
+
+        <!-- ระบบ Wishlist 
+        <div id="wishlist" class="wishlist-container">
+            <br>
+            <h1>gdfkgoidfjkgoidfjgiodf</h1>
+            <div class="wishlist-header">
+                <h1>wishlist</h1>
+                <span class="close-btn" id="close-wishlist" onclick="closeWishlist()">X</span>
+            </div>
+            <br>
+            <div id="mywishlist" class="wishlist_list">
+                <div class="wishlistlist_item">
+                    <div class="wishlistlist_left">
+                        <img src="Product\5.png" alt="">
+                        <div class="wishlistlist_detail">
+                            <p style="font-size: 1.2vw;">jhgjhg</p>
+                        </div>
+                    </div>
+                </div>
+        </div> -->
+       
+
+        
+    
+    </body>
+    <script>
+        function handleAccountClick() {
+            // เปิด Login Sidebar
+            openLogin();
+        
+            // ปิด hamburger menu โดยการ uncheck checkbox
+            document.getElementById("menuCheckbox").checked = false;
+            }
+        function openLogin() {
+            document.getElementById("login-sidebar").style.transform = "translateX(0)";
+        }
+
+        function closeLogin() {
+            document.getElementById("login-sidebar").style.transform = "translateX(100%)";
+        }
+    </script>
+    <script>
+        function openWishlist() {
+            document.getElementById("Wishlist-sidebar").style.transform = "translateX(0)";
+        }
+
+        function closeWishlist() {
+            document.getElementById("Wishlist-sidebar").style.transform = "translateX(100%)";
+        }
+    </script>
+    <script>
+        //โยนผู้ใช้กลับไปยังหน้าก่อนหน้าโดยอิงตามพารามิเตอร์ที่ส่งมาใน URL
+        $(document).ready(() => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromPage = urlParams.get('from');
+            
+            if (fromPage) {
+                $(".back-button").attr("href", `${fromPage}`);
+            } else {
+                $(".back-button").attr("href", "index"); // หน้าหลักในกรณีไม่มีค่า `from`
+            }
+        });
+    </script>
+    <script>
+        // ฟังก์ชันเพิ่มยอดผู้เข้าชม
+        function incrementView(productId, productName) {
+        // ดึงข้อมูลสินค้าเดิมจาก Local Storage
+            let productViews = JSON.parse(localStorage.getItem('productViews')) || {};
+
+        // หากสินค้าไม่มีข้อมูลใน Local Storage ให้เพิ่มเริ่มต้น
+            if (!productViews[productId]) {
+                productViews[productId] = { name: productName, views: 0 };
+            }
+
+        // เพิ่มยอดผู้เข้าชม
+            productViews[productId].views += 1;
+
+        // บันทึกข้อมูลกลับไปใน Local Storage
+            localStorage.setItem('productViews', JSON.stringify(productViews));
+
+            console.log(`Product ID: ${productId}, Views: ${productViews[productId].views}`);
+        }
+
+    // ฟังก์ชันดึงค่าจาก Query String
+        function getQueryStringParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search); // ดึงค่าจาก URL
+            return urlParams.get(paramName); // คืนค่า query string ตามชื่อ param
+        }
+
+    // ใช้งานฟังก์ชัน
+        document.addEventListener('DOMContentLoaded', () => {
+            const productId = getQueryStringParam('product_id'); // ดึง product_id จาก URL
+            const productName = `Product ${productId}`; // ตั้งชื่อสินค้าแบบง่าย ๆ (หรือดึงจาก API)
+
+            if (productId) {
+                incrementView(productId, productName); // เพิ่มยอดเข้าชม
+            } else {
+                console.log('Product ID not found in URL');
+            }
+        });
+    </script>
+
+    
+</html>

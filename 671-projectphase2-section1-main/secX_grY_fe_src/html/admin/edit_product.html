@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product for admin</title>
+  <link rel="stylesheet" href="admin/add_product.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <img class="logo_img" src="logo2.png" alt="Logo">
+        GADY PADIE
+      </div>
+
+      <!-- nav สำหรับadmin -->
+      <nav>
+        <ul>
+          <li><a href="dashboard">Dashboard</a></li>
+          <li><a href="user">Users</a></li>
+          <li class="active"><a href="admin_product">Product</a></li>
+          <li><a href="administrators">Administrators</a></li>
+          <li><a href="index">Homepage</a></li>
+        </ul>
+        <form action="http://localhost:3030/logout" method="POST">
+          <button type="submit" class="logout_bt">LOGOUT</button>
+        </form>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Edit Product</h1>
+      </header>
+
+      <!-- Form Editสินค้า -->
+      <section class="add-product-form">
+
+        <form action="http://localhost:3030/form-update" method="POST">
+          <div class="form-left">
+            <label for="item-id">ITEM ID</label>
+            <input type="text" id="item-id" name="item_id" readonly>
+
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" name="product_name">
+
+            <label for="details">Details</label>
+            <textarea id="details" name="detail" maxlength="500"></textarea>
+
+            <label for="descriptions">Descriptions</label>
+            <textarea id="descriptions" name="descriptions" maxlength="500"></textarea>
+
+            <label for="brand">Brand</label>
+            <input type="text" id="brand" name="brand">
+
+            <label>Size</label>
+            <div class="size-inputs">
+              <input type="text" placeholder="W" name="W">
+              <input type="text" placeholder="L" name="L">
+              <input type="text" placeholder="H" name="H">
+            </div>
+
+            <label for="weight">Weight</label>
+            <input type="text" id="weight" name="weight">
+
+            <label for="year">Year</label>
+            <input type="text" id="year" name="year">
+
+            <label for="color">Color</label>
+            <input type="text" id="color" name="color">
+
+            <label for="material">Material</label>
+            <input type="text" id="material" name="material">
+
+            <label for="price">Price (THB)</label>
+            <input type="text" id="price" name="price">
+          </div>
+          <div class="form-right">
+            <label for="condition">Item Condition</label>
+            <select id="condition" name="condition">
+              <option>Select Condition</option>
+              <option>Excellent</option>
+              <option>Good</option>
+              <option>Normal</option>
+            </select>
+
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option>Select Category</option>
+              <option>Bag</option>
+            </select>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option>M</option>
+              <option>W</option>
+            </select>
+
+            <label for="amount">Amount</label>
+            <input type="text" id="amount" name="amount">
+
+            <div class="form-actions">
+              <!-- ปุ่มupdateสินค้า -->
+              <button type="submit" class="update-button">Update</button>
+              <!-- ปุ่มBack -->
+              <button type="button" class="back-button" onclick="window.location.href='/admin_product'">Back</button>
+            </div>
+          </div>
+        </form>
+
+
+
+      </section>
+    </main>
+    <script>
+      // Extract the product ID from the query string
+      const urlParams = new URLSearchParams(window.location.search);
+      const edit_id = urlParams.get('edit_id');
+
+      // Fetch all products
+      fetch('http://localhost:3030/api/allproducts')
+        .then(response => response.json())
+        .then(products => {
+          const product = products.find(p => p.itemid === edit_id);
+          if (!product) {
+            throw new Error('Product not found');
+          }
+
+          // Populate the form fields
+          document.getElementById('item-id').value = product.itemid;
+          document.getElementById('product-name').value = product.product_name;
+          document.getElementById('details').value = product.detail;
+          document.getElementById('descriptions').value = product.descriptions;
+          document.getElementById('brand').value = product.brand;
+          document.querySelector('[name="W"]').value = product.width;
+          document.querySelector('[name="L"]').value = product.length;
+          document.querySelector('[name="H"]').value = product.height;
+          document.getElementById('weight').value = product.weight;
+          document.getElementById('year').value = product.item_year;
+          document.getElementById('color').value = product.color;
+          document.getElementById('material').value = product.material;
+          document.getElementById('price').value = product.price;
+          document.getElementById('amount').value = product.amount;
+
+          // Set select field values
+          document.getElementById('condition').value = product.item_condition;
+          document.getElementById('category').value = product.category;
+          document.getElementById('gender').value = product.gender;
+        })
+        .catch(error => {
+          console.error('Error fetching or populating product:', error);
+          alert('Unable to load product data.');
+        });
+
+    </script>
+  </div>
+</body>
+
+</html>

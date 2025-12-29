@@ -1,0 +1,306 @@
+/*เรียก css ผ่านclass และ ID เพื่อตกแต่งให้สวยงาม*/
+*{
+  font-weight: 300;
+  font-family: 'Cormorant Garamond';
+}
+
+
+.hero-text {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.hero-text .tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.hero-text .tabs a {
+    margin: 0 10px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+}
+
+.sidebar {
+    
+    gap: 20px;
+    padding: 20px;
+}
+
+.conter{
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+.product {
+    
+    text-align: center;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+}
+.Product_itme{
+    cursor: pointer;
+    text-align: left;   
+
+}
+
+.Product_itme:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.product p {
+    color: #000000;
+    margin-top: 20px;
+}
+.price{
+  font-weight: 900;
+  margin: 10px 0 5px;
+}
+
+
+.im_main:hover{
+    color: #BDB3A7; /* Highlight color */
+    transition: 0.3s;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 10000px;
+    position: relative;
+    margin: auto;
+    margin-top: 70px; /* เพิ่มระยะห่างจาก header */
+    position: relative;
+    text-align: center;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+ 
+
+
+
+
+
+  /*ระบบ cart */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.5vw;
+  position: relative; /* เปลี่ยนจากตำแหน่งปกติเป็น relative เพื่อใช้จัดตำแหน่งได้ */
+  right: 0; /* เอาไปไว้ทางขวา */
+}
+
+
+.cart-container {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 50px;
+  max-width: 50vw;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  padding: 20px;
+  flex-direction: column; /* ทำให้ container เป็นคอลัมน์ */
+  justify-content: space-between; /* กระจายพื้นที่ระหว่างรายการสินค้าและปุ่ม */
+  overflow-y: auto; /* เปิดการเลื่อนในแนวตั้ง */
+}
+
+
+
+.cartlist_itme{
+  /*background-color: blue; */
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+  margin-bottom: 20px;
+}
+
+.cartlist {
+  max-height: 80vh; /* กำหนดความสูงสูงสุดของรายการสินค้าในตะกร้า */
+  overflow-y: auto; /* เปิดการเลื่อนเมื่อเกินขนาด */
+}
+
+.cartlist_left{
+ /* background-color: chocolate; */
+  display: flex;
+}
+
+.cartlist_left img{
+  width: 5vw;
+  height: 5vw;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+
+}
+.QTY{
+  text-align: center;
+}
+
+
+
+.ADD_DEL_NUM{
+  display: flex;
+}
+
+.BT_ADD_DEL{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+ /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.quantity{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.cart-footer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 70px;
+  width: 100%; /* ทำให้ `cart-footer` ใช้พื้นที่ทั้งหมด */
+  
+}
+
+.cart-footer p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cart-footer button {
+  width: 212px;
+  height: 63px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px; 
+  
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; 
+  padding: 10px 0; 
+}
+
+.total p {
+  font-size: 35px;
+}
+
+
+.cartlist_itme:nth-child(odd) {
+  background-color: #EBE6E0; /* สีเทาอ่อนสำหรับแถวคี่ */
+}
+
+.cartlist_itme:nth-child(even) {
+  background-color: #ffffff; /* สีขาวสำหรับแถวคู่ */
+}
+
+
+
+
+
+
+
+#productlist {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 ชิ้นต่อบรรทัด */
+  gap: 20px; /* ระยะห่างระหว่างสินค้า */
+}
+
+
+@media (max-width: 1024px) {
+  #productlist {
+      grid-template-columns: repeat(3, 1fr); /* 3 ชิ้นต่อบรรทัด */
+  }
+}
+
+
+@media (max-width: 768px) {
+  #productlist {
+      grid-template-columns: repeat(2, 1fr); /* 2 ชิ้นต่อบรรทัด */
+  }
+}
+
+
+@media (max-width: 480px) {
+  #productlist {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}

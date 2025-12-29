@@ -1,0 +1,829 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond';
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EBE6E0;
+    padding: 15px 20px;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.logo {
+    font-size: 32px;
+    font-weight:300;
+    text-decoration:none;
+    color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.user-actions a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.user-actions {
+    display: flex; /* จัดเรียงไอคอนและ "Our Team" เป็นแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    gap: 20px; /* เพิ่มระยะห่างระหว่างแต่ละไอคอน */
+}
+.user {
+    margin-right: 15px;
+}
+
+
+
+/* hamber */
+
+
+.head_menu{
+    font-size: 70px;
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Courier New';
+    
+
+}
+
+.hamburger {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    right: 20px;
+    top: -3px;
+    width: 30px;
+    height: 25px;
+    z-index: 3; /* เพื่อให้ปุ่มแฮมเบอร์เกอร์อยู่ด้านหน้า */
+    
+  }
+  
+  
+.hamburger span {
+    display: block;
+    transition: 0.3s ease;
+    width: 25px; /* ปรับความกว้างให้เหมาะสม */
+    height: 3px; /* ความสูงของแต่ละบาร์ในแฮมเบอร์เกอร์ */
+    background-color: #000; /* เปลี่ยนสีให้ชัดเจน */
+    margin: 5px 0; /* ระยะห่างระหว่างบาร์ในแฮมเบอร์เกอร์ */
+  }
+  
+  /* เมนูถูกซ่อนตอนเริ่ม */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: -100%; /* ซ่อนเมนูที่ขวาของหน้าจอ */
+    width: 40vw; /* แสดงผลเฉพาะ 40% ของหน้าจอ */
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: 0.5s ease;
+    z-index: 2;
+  }
+  
+  /* ขอบด้านล่างของเมนู */
+.menu::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+  }
+.menu-toggle input {
+    display: none; /* ซ่อน checkbox */
+  }
+  
+.menu-toggle {
+    margin-left: 20px; /* ทำให้แฮมเบอร์เกอร์อยู่ขวาสุด */
+    margin-top: 5px; /* ปรับให้มีระยะห่างจากด้านบน */
+}
+
+.P_back {
+    text-align: right;
+    font-size: 20px;
+    height: 20px;
+}
+.menu li {
+    padding: 15px;
+    text-align: left;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+
+
+
+.icon_berger-container {
+    display: flex;
+    align-items: center; /* จัดให้ text และ icon อยู่ในแนวเดียวกัน */
+    margin-bottom: 20px; /* กำหนดระยะห่างระหว่างลิงก์ */
+}
+
+.icon_berger-container img {
+    width: 50px;
+    margin-right: 10px; /* ระยะห่างระหว่างไอคอนและข้อความ */
+}
+
+.icon_berger-container p {
+    font-size: 20px;
+    margin: 0; /* เอา margin ออกเพื่อป้องกันการเยื้อง */
+    line-height: 1; /* ทำให้ข้อความอยู่กึ่งกลาง */
+}
+
+.icon_berger-container p:hover {
+    background-color: #ddd;
+}
+
+  /* สลับสีเทากับสีขาว */
+.menu li:nth-child(even) {
+    background-color: #EBE6E0;
+  }
+  
+.menu li:hover {
+    background-color: #ddd;
+  }
+  
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; 
+    z-index: 1;
+  }
+  
+  /* แสดงเมนูเมื่อ checkbox ถูกเช็ค */
+input:checked ~ .menu {
+    right: 0; /* เลื่อนเมนูมาแสดงที่ขวาของหน้าจอ */
+  }
+  
+input:checked ~ .overlay {
+    display: block; /* แสดง overlay เมื่อเมนูถูกเปิด */
+  }
+  
+  /* เปลี่ยนการหมุนของแฮมเบอร์เกอร์ */
+input:checked + label span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+  }
+  
+input:checked + label span:nth-child(2) {
+    opacity: 0;
+  }
+  
+input:checked + label span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+
+
+
+  /* drop down */
+.menu-bar {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    position: relative; /* ให้ position ของ menu-bar เป็น relative */
+    z-index: 10; /* z-index สูงกว่า dropdown-content */
+}
+
+.menu-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-bar ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.menu-bar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.menu-bar ul li a:hover {
+    color: #BDB3A7;
+    transition: 0.3s;
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    flex-direction: column; /* จัดเรียงแนวตั้ง */
+    top: calc(100% + 5px);
+    left: 20%;
+    height: 250px;
+    width:100vw;
+    background-color: #F6F1EB;
+    border: 1px solid #ccc;
+    padding: 30px 40px; /* เพิ่ม padding เพื่อเว้นระยะห่างจากขอบ */
+    min-width: 600px; /* Adjust minimum width */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transform: translateX(-13.5%); /* จัดให้อยู่ตรงกลาง */
+    
+}
+
+
+.dropdown:hover .dropdown-content , .dropdown-content:hover {
+    display: flex;
+    
+}
+
+.dropdown-columns {
+    display: flex;
+    flex-direction: column; /* จัดเรียงคอลัมน์ในแนวตั้ง */
+    gap: 20px; /* ระยะห่างระหว่างคอลัมน์ */
+    z-index: 1100;
+}
+
+.dropdown-column {
+    margin-right: 20px;
+    min-width: 100%; /* Ensure each column has enough space */
+    /*flex-grow: 1;*/
+}
+
+.dropdown-column h4 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dropdown-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-column ul li {
+    margin: 0; /* เอาระยะห่างระหว่างรายการออก */
+    padding-right: 10px; /* เพิ่ม padding ด้านขวาเล็กน้อยเพื่อเว้นช่องเล็กๆ */
+    display: inline-block; /* จัดรายการให้อยู่ในบรรทัดเดียวกัน */
+}
+
+
+.dropdown-column ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+}
+
+.dropdown-column ul li a:hover {
+    color: #BDB3A7; /* Highlight color */
+}
+
+/* แสดง dropdown เมื่อ hover ที่ WOMEN */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-image {
+    margin-left: auto; /* ทำให้รูปชิดด้านขวา */
+    display: flex;
+    align-items: flex-start; /* ทำให้รูปชิดด้านบนของ container */
+    margin-top: -170px; /* ปรับค่าเพื่อเลื่อนรูปขึ้น */
+}
+
+
+
+
+/* User icon */
+.user-actions {
+    position: relative;
+}
+
+/* Login Sidebar */
+.login-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.login-content {
+    padding: 20px;
+}
+
+.login-content h2 {
+    margin-top: 0;
+}
+
+
+
+.star{
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.login-content label {
+    display: block;
+    margin-top: 15px;
+}
+
+.login-content input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+.login-content button:hover {
+    background-color: #555;
+}
+
+
+
+.login-content .forgot-password-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.forgot-password-container .forgot-password {
+    font-size: 14px;
+    color: #6a6a6a;
+    text-decoration: none;
+}
+
+.forgot-password-container .signin-btn {
+    padding: 10px 70px;
+    background-color: #413B3B;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.login-content p {
+    text-align: right;
+    color: #6a6a6a;
+    margin-top: 10px;
+    font-size: 15px;
+}
+.login-content a {
+    color: #6a6a6a;
+}
+
+
+
+/* ค้นหา Search */
+/* สไตล์สำหรับป๊อปอัพพื้นหลัง */
+.search-popup {
+    display: none; /* ซ่อนป๊อปอัพโดยเริ่มต้น */
+    position: fixed; /* ทำให้ป๊อปอัพอยู่เหนือหน้าเว็บ */
+    z-index: 999; /* ทำให้ป๊อปอัพอยู่ด้านบนสุด */
+    left: 0;
+    top: 0;
+    width: 100%; /* ครอบคลุมความกว้างทั้งหมด */
+    height: 100%; /* ครอบคลุมความสูงทั้งหมด */
+    overflow: auto; /* ถ้าข้อมูลยาวเกิน */
+    background-color: rgba(0,0,0,0.5); /* สีพื้นหลังโปร่งแสง */
+}
+
+/* สไตล์สำหรับเนื้อหาป๊อปอัพ */
+.search-popup-content {
+    background-color: #fff;
+    margin: 15% auto; /* อยู่ตรงกลางหน้าจอ */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* กำหนดความกว้างของป๊อปอัพ */
+    max-width: 400px; /* ความกว้างสูงสุด */
+    text-align: center;
+    position: relative;
+}
+
+/* ปุ่มปิดป๊อปอัพ */
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* สไตล์สำหรับช่องค้นหาและปุ่ม */
+.search-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.search-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none; /* เอาขอบออก */
+    background-color: #a39d96; /* สีพื้นหลังของปุ่ม */
+    color: #fff; /* สีข้อความ */
+    border-radius: 5px; /* ทำมุมปุ่มให้มน (ถ้าต้องการ) */
+    font-size: 16px; /* ขนาดข้อความ */
+}
+
+/* เพิ่มเอฟเฟกต์เมื่อ hover */
+.search-button:hover {
+    background-color: #ddd6cd; /* สีเมื่อเอาเมาส์ชี้ */
+}
+
+
+
+/* Wishlist Sidebar */
+
+
+/* กำหนดขนาดของไอคอน Wishlist */
+.im_main_wi {
+    width: 24px; /* ปรับขนาดกว้าง */
+    height: 24px; /* ปรับขนาดสูง */
+    object-fit: cover; /* จัดการรูปภาพให้เหมาะสมในกรอบ */
+}
+
+
+.Wishlist-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.Wishlist-content {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.Wishlist-content h2{
+    margin-top: 0;
+}
+
+.Wishlist-content p{
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* รูปแบบสินค้าภายใน Wishlist */
+.product-wishlist {
+    margin-top: 30px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e7ddd3;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.wishlist-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.wishlist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.wishlist-info h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+.wishlist-info p {
+    font-size: 14px;
+    margin: 0;
+    color: #777;
+}
+
+/* ปุ่มลบสินค้าใน Wishlist */
+.wishlist-remove-btn {
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    margin-right: 20px;
+}
+
+
+
+
+/* เลขตระกร้าสินค้า */
+.cart {
+    position: relative; /* เลขตระกร้าสินค้า */
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -18px; /* ปรับตำแหน่งตัวเลขด้านบน */
+    right: -20px; /* ปรับตำแหน่งตัวเลขด้านขวา */
+    background-color: rgb(245, 196, 196); /* สีพื้นหลังของตัวเลข */
+    color: black; /* สีของตัวเลข */
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    padding: 5px 10px; /* เพิ่มระยะห่างภายในตัวเลข */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+/* Container หลักของ Cart */
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.cart-container.open {
+    transform: translateX(0); /* Slide-in effect */
+}
+
+
+
+
+/* Header ของ Cart */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: normal; /* ทำให้คำว่า Cart เป็นตัวบาง */
+    color: #333;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+/* ปุ่มปิด (X) */
+.close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    font-weight: normal;
+    margin-left: auto; /* ดันปุ่ม X ไปชิดขวา */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+
+
+/* รายการสินค้าใน Cart */
+.cartlist_itme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #f2ece5;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* โครงสร้างด้านซ้ายของ Cart */
+.cartlist_left {
+    display: flex;
+    align-items: center;
+}
+
+.cartlist_left img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cartlist_left .product-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.cartlist_left .product-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cartlist_left .product-price {
+    font-size: 14px;
+    color: #666;
+}
+
+/* โครงสร้างด้านขวาของ Cart */
+.cartlist_right {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.quantity-container label {
+    font-size: 14px;
+    color: #666;
+    margin-right: 5px;
+}
+
+.quantity {
+    width: 30px;
+    text-align: center;
+    border: none;
+    background: none;
+    font-weight: bold;
+}
+
+.remove-button {
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Footer ของ Cart */
+.cart-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Subtotal */
+.total {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* ปุ่ม Check Out */
+.cart-footer button {
+    width: 100%;
+    max-width: 300px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ข้อความด้านล่างของ Cart */
+.cart-footer p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+
+/* ปรับขนาดตามหน้าจอ */
+/* Responsive สำหรับหน้าจอเล็กกว่า 768px */
+@media (max-width: 768px) {
+    /* จัดให้ logo อยู่ซ้ายสุด */
+    header {
+    
+        justify-content: flex-start; /* ดันโลโก้ไปซ้ายสุด */
+    }
+
+    .logo {
+        font-size: 24px; /* ขนาดของโลโก้สำหรับหน้าจอเล็ก */
+        position: static; /* ยกเลิกการตั้งค่า absolute เพื่อให้ชิดซ้าย */
+        transform: none; /* ยกเลิกการจัดให้อยู่ตรงกลาง */
+        margin-left: 15; /* นำโลโก้ไปชิดขอบซ้าย */
+    }
+
+    /* ซ่อนเมนูหลัก (ถ้ามี) */
+    .menu-bar {
+        display: none;
+    }
+
+    /* ลดขนาดและระยะห่างของไอคอน */
+    .user-actions {
+        margin-left: auto; /* ดันไอคอนไปทางขวาสุด */
+        gap: 5px; /* ลดระยะห่างระหว่างไอคอน */
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+       
+    }
+}
+
+
+
+

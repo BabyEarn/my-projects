@@ -1,0 +1,258 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 20%;
+    background-color: #e5e5e5;
+    padding: 20px;
+    color: #333;
+}
+
+.sidebar .logo {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar nav ul li.active a,
+.sidebar nav ul li a:hover {
+    background-color: #ccc;
+}
+
+.sidebar nav ul li.active a,
+.sidebar nav ul li a:hover {
+    background-color: #ccc;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Add Product Form Styling */
+.add-product-form {
+    display: flex;
+    gap: 20px;
+}
+
+.add-product-form form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-left, .form-right {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, textarea, select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    height: 70px;
+}
+
+/* Size Inputs */
+.size-inputs {
+    display: flex;
+    gap: 8px;
+}
+
+.size-inputs input {
+    width: 30%;
+    padding: 6px;
+}
+
+/* Photo Upload Section */
+.photo-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.photo-box {
+    width: 100px;
+    height: 100px;
+    background-color: #f2f2f2;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.add-photo-button {
+    padding: 6px 12px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.add-photo-button:hover {
+    background-color: #444;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: center; /* จัดตำแหน่งปุ่มไปทางขวา */
+    gap: 10px;
+    width: 100%;
+    
+}
+
+.update-button, .back-button {
+    padding: 8px 16px; /* ลดขนาดปุ่มลง */
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px;
+    
+
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* เพิ่มช่องว่างด้านล่างถ้าต้องการ */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo_img {
+    height: 100px;
+    width: 100px;
+   
+    margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างภาพกับข้อความ */
+}
+
+.update-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.back-button {
+    background-color: #555;
+    color: white;
+}
+
+
+
+.add-product-form form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-left, .form-right {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.photo-upload {
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    width: 100%;
+    display: flex;
+    
+}
+
+.logout_bt {
+    background-color: #ff4b5c; 
+    color: #fff;
+    padding: 8px 10px; 
+    font-size: 10px; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout_bt:hover {
+    background-color: #ff1e33; 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.logout_bt:active {
+    transform: scale(0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}

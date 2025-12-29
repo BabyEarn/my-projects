@@ -1,0 +1,70 @@
+<!-- ไม่มีในรีเควสเม้น-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GADY PADIE Account</title>
+  <link rel="stylesheet" href="user/user.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+        <a href="javascript:void(0);" id="backButton" class="back-button" onclick="history.back();">← BACK</a>
+        <h1>GADY PADIE</h1>
+        <a href="#" class="sign-out">Sign-out</a>
+    </header>
+
+    
+    <section class="account-section">
+      <h2>ACCOUNT</h2>
+      
+      <div class="profile-info">
+        <div class="left">
+          <h3>PROFILE INFORMATION</h3>
+          <p><strong>Name</strong><br>Ms. Gady Padie</p> <!-- ดึงเอาชื่อผู้ใช้จากSQLนะคับบบ -->
+          <p><strong>E-mail</strong><br>gadypadie@gmail.com</p> <!-- ดึงเอาอีเมลผู้ใช้จากSQLนะคับบบ -->
+          <p><strong>Telephone number</strong><br>+66999999999</p> <!-- ดึงเอาเบอร์ผู้ใช้จากSQLนะคับบบ -->
+          <p><strong>Date of birth</strong><br>Jan 1, 2000</p> <!-- ดึงเอาวันเดือนปีเกิดผู้ใช้จากSQLนะคับบบ -->
+          <p><strong>Password</strong><br>*********</p><!-- อันนี้ปิดไว้ก็ได้มั้ง -->
+        </div>
+        
+        <div class="right">
+          <h3>Billing address</h3><!-- ที่เหลือก็ดึงเอาข้อมูลผู้ใช้จากSQLนะคับบบ -->
+          <p>Ms. Gady Padie</p>
+          <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom 73170 Thailand</p>
+          <p>+66999999999</p>
+          <p class="note">Billing name and address must match the credit card you will be using.</p>
+        </div>
+      </div>
+      
+      <div class="address-book">
+        <h3>ADDRESS BOOK</h3>
+        <p>Add, delete or change your addresses here.</p>
+        <div class="address">
+          <p><strong>★ DEFAULT ADDRESS</strong></p>
+          <p>Ms. Gady Padie</p>
+          <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom 73170 Thailand</p>
+          <p>+66999999999</p>
+          <button class="edit">Edit</button>
+        </div>
+        <button class="add-address">Add an address</button>
+      </div>
+      
+      <div class="order-history">
+        <h3>ORDER HISTORY</h3>
+        <p>You have placed 1 order.</p>
+        <p>
+          <span>September 26, 2025</span> |<!-- อันนี้ถ้าไม่มีออเดอร์ขึ้นNone ก็ได้นะคับบบ -->
+          <span>Order #987654321x</span> |
+          <span>Shipped on September 26, 2024</span> |
+          <span>Shipping Number: TH9999999999 / Messenger link:</span>
+        </p>
+      </div>
+      
+    </section>
+  </div>
+</body>
+</html>

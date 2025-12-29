@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GADY PADIE</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	<link rel="stylesheet"  href="user/our_team.css" />
+    <link rel="stylesheet" href="user/header.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="user/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  	
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="menu-bar">
+                <ul>
+                    <li><a href="index">WHAT'S NEW</a></li>
+                    <li class="dropdown">
+                        <a href="women">WOMEN</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-column">
+                                <h4>BAGS</h4>
+                                <ul>
+                                    <li><a href="#">Handbags</a></li>
+                                    <li><a href="#">Saddle Bags</a></li>
+                                    <li><a href="#">Mini Bags</a></li>
+                                    <li><a href="#">Cross-Body & Shoulder Bags</a></li>
+                                    <li><a href="#">Tote Bags</a></li>
+                                    <li><a href="#">Hobo Bags</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>SMALL LEATHER GOODS</h4>
+                                <ul>
+                                    <li><a href="#">Card Holders</a></li>
+                                    <li><a href="#">Wallets</a></li>
+                                    <li><a href="#">Wallets on Chain</a></li>
+                                    <li><a href="#">Pouches</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>BRANDS</h4>
+                                <ul>
+                                    <li><a href="#">Celine</a></li>
+                                    <li><a href="#">Chanel</a></li>
+                                    <li><a href="#">Dior</a></li>
+                                    <li><a href="#">Hermes</a></li>
+                                    <li><a href="#">Miu Miu</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="men">MEN</a></li>
+                </ul>
+            </div>
+        </nav>
+        <a href="index" class="logo">GADY PADIE</a>
+        <div class="user-actions">
+            <a href="#" class="user">
+                <img src="user (1).png" class="im_main_wi" alt="Image" onclick="openLogin()">
+            </a>
+            <div class="menu-toggle">
+                <input type="checkbox" id="menuCheckbox" />
+                <label for="menuCheckbox" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="overlay" id="overlay"></div>
+                <ul class="menu" id="menu">
+                    <p class="head_menu">Menu</p>
+                    <li><a href="recommend">RECOMMEND <p class="P_back"> </p> </a></li>
+                    <li><a href="index">WHAT’S NEW <p class="P_back"> </p></a></li>
+                    <li><a href="women">WOMEN <p class="P_back"> </p></a></li>
+                    <li><a href="men">MEN <p class="P_back"> </p></a></li>
+                    <li><a href="brands">BRANDS <p class="P_back"> </p></a></li>
+
+                    <li><a href="#" onclick="handleAccountClick()" class="icon_berger-container">
+                        <img src="1.png" alt="Image">
+                        <p>ACCOUNT</p>
+                    </a></li>
+                    <li><a href="ourteam" class="icon_berger-container">
+                        <img src="logo2.png" alt="Image">
+                        <p>OUR TEAM</p>
+                    </a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Login Sidebar -->
+        <div id="login-sidebar" class="login-sidebar">
+            <div class="login-content">
+                <h2>GADY PADIE ACCOUNT</h2>
+                <p>Sign in with your email address and your password</p>
+                    <form action="http://localhost:3030/account_post" method="POST" onsubmit="return checkCaptcha()">
+                        <label for="email">E-MAIL <span class="star">*</span></label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="password">PASSWORD <span class="star">*</span></label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="g-recaptcha" data-sitekey="6LdCzowqAAAAAGdgIFCiGYBwQpau5_MNfZTJrkrb"></div>
+                        <div class="forgot-password-container">
+                            <a href="#" class="forgot-password">Forgot your password?</a>
+                            <button type="submit" class="signin-btn">Sign in</button>
+                        </div>
+                    </form>
+                <p>Don't have a GADY PADIE account? <br><a href="create_account">Create yours now!</a></p>
+            
+                <span class="close-btn" onclick="closeLogin()">X</span>
+            </div>
+        </div>
+
+
+
+    </header>
+  	
+  	<div class="our-team">
+    		<div class="meet-the-gady">MEET THE GADY PADIE TEAM</div>
+    		<div class="our-team-child">
+                <img src="Team\image 50.png">
+    		</div>
+
+
+    		<div class="our-team-item">
+                <img src="Team\image 49.png">
+    		</div>
+
+    		<div class="our-team-inner">
+                <img src="Team\image 48.png">
+    		</div>
+
+    		<div class="rectangle-div">
+                <img src="Team\image 47.png">
+    		</div>
+            
+    		<div class="tas-sukastid">Tas Sukastid</div>
+            <a href="https://www.instagram.com/cactas.jpg" target="_blank">
+    		<img class="bxl-instagram-icon" alt="" src="bxl-instagram.svg">
+    		</a>
+    		<img class="bxl-facebook-circle-icon" alt="" src="bxl-facebook-circle.svg">
+    		
+    		<img class="bxl-github-icon" alt="" src="bxl-github.svg">
+    		
+    		<div class="div">6687022</div>
+    		<div class="thankamol-saekeang">Thankamol Saekeang</div>
+
+            <a href="https://www.instagram.com/baby__earn" target="_blank">
+    		<img class="bxl-instagram-icon1" alt="" src="bxl-instagram.svg">
+    		</a>
+
+    		<img class="bxl-facebook-circle-icon1" alt="" src="bxl-facebook-circle.svg">
+    		
+    		<img class="bxl-github-icon1" alt="" src="bxl-github.svg">
+    		
+    		<div class="div1">6687023</div>
+    		<div class="phimchanok-laonok">Phimchanok Laonok</div>
+
+            <a href="https://www.instagram.com/_phxcnk" target="_blank">
+    		<img class="bxl-instagram-icon2" alt="" src="bxl-instagram.svg">
+            </a>
+    		
+    		<img class="bxl-facebook-circle-icon2" alt="" src="bxl-facebook-circle.svg">
+    		
+    		<img class="bxl-github-icon2" alt="" src="bxl-github.svg">
+    		
+    		<div class="div2">6687035</div>
+    		<div class="weerapat-aphiphuwong">Weerapat Aphiphuwong</div>
+            <a href="https://www.instagram.com/f_ilmm_" target="_blank">
+    		<img class="bxl-instagram-icon3" alt="" src="bxl-instagram.svg">
+            </a>
+    		<img class="bxl-facebook-circle-icon3" alt="" src="bxl-facebook-circle.svg">
+    		<img class="bxl-github-icon3" alt="" src="bxl-github.svg">
+    		
+    		<div class="div3">6687049</div>
+    		<div class="our-team2">OUR TEAM</div>
+    		<img class="image-icon" alt="" src="logo2.png">
+    		
+  	</div>
+  	
+  	
+  	
+  	
+</body>
+<script>
+    function handleAccountClick() {
+        // เปิด Login Sidebar
+        openLogin();
+    
+        // ปิด hamburger menu โดยการ uncheck checkbox
+        document.getElementById("menuCheckbox").checked = false;
+        }
+    function openLogin() {
+        document.getElementById("login-sidebar").style.transform = "translateX(0)";
+    }
+
+    function closeLogin() {
+        document.getElementById("login-sidebar").style.transform = "translateX(100%)";
+    }
+</script>
+</html>

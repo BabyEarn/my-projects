@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="admin/Dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="user/index.js"></script>
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img class="logo_img" src="logo2.png" alt="Logo">
+                GADY PADIE
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="dashboard">Dashboard</a></li>
+                    <li><a href="user">Users</a></li>
+                    <li><a href="admin_product">Product</a></li>
+                    <li><a href="administrators">Administrators</a></li>
+                    <li><a href="index">Homepage</a></li>
+                </ul>
+                <form action="http://localhost:3030/logout" method="POST">
+                    <button type="submit" class="logout_bt">LOGOUT</button>
+                </form>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Dashboard</h1>
+            </header>
+            <div id="admin-info">
+                <p>Welcome, <span id="username"></span>Admin👋!</p>
+                <br>
+            </div>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <h2>Products Sold Today</h2>
+                    <p class="stat-number">120</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h2>New Customers Today</h2>
+                    <p class="stat-number">45</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h2>Total Revenue Today</h2>
+                    <p class="stat-number">$5,670</p>
+                </div>
+            </section>
+            <!-- chart-card -->
+            <section class="charts">
+                <div class="chart-card">
+                    <h2>Revenue Breakdown</h2>
+                    <canvas id="revenueChart" width="200" height="200"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h2>Website Visitors Today</h2>
+                    <canvas id="visitorsChart" width="200" height="200"></canvas>
+                </div>
+            </section>
+            <!--<button onclick="clearHistory()">Clear History</button> สำหรับclearHistory-->
+
+        </main>
+    </div>
+
+    <script>
+        // ฟังก์ชันสร้างสีแบบสุ่ม
+        function generateRandomColors(count) {
+            const colors = [];
+            for (let i = 0; i < count; i++) {
+                const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 70%, 60%)`; // ใช้ HSL เพื่อให้ได้สีสดใส
+                colors.push(randomColor);
+            }
+            return colors;
+            }
+
+        // ดึงข้อมูลจาก Local Storage
+        const productViews = JSON.parse(localStorage.getItem('productViews')) || {};
+
+        // เตรียมข้อมูลสำหรับกราฟ
+        const labels = Object.values(productViews).map(product => product.name);
+        const data = Object.values(productViews).map(product => product.views);
+
+        // สร้างสีแบบไดนามิกตามจำนวนสินค้า
+        const dynamicColors = generateRandomColors(labels.length);
+
+        // แสดงกราฟด้วย Chart.js
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+            labels: labels, // ชื่อสินค้า
+            datasets: [{
+            data: data, // ยอดผู้เข้าชม
+            backgroundColor: dynamicColors, // ใช้สีแบบไดนามิก
+        }]
+        },
+        options: {
+        responsive: true,
+        }
+    });
+
+        // ดึงข้อมูลการเยี่ยมชมจาก Local Storage
+        const visitorsData = JSON.parse(localStorage.getItem('site_visit')) || { newVisitors: 0, returningVisitors: 0 };
+
+        // แสดงผลใน Chart.js
+        const visitorsCtx = document.getElementById('visitorsChart').getContext('2d');
+        new Chart(visitorsCtx, {
+            type: 'pie',
+            data: {
+                labels: ['New Visitors', 'Returning Visitors'],
+                datasets: [{
+                data: [visitorsData.newVisitors, visitorsData.returningVisitors],
+                backgroundColor: ['#4BC0C0', '#FF9F40'],
+                }]
+            },
+            options: {
+            responsive: true,
+                }
+                });
+
+
+
+
+            function clearHistory() {
+                localStorage.removeItem('productViews'); // ลบข้อมูลสินค้า
+                localStorage.removeItem('hasVisited'); // ลบสถานะการเยี่ยมชม (ถ้ามี)
+                console.log('History cleared.');
+                alert('History has been cleared.');
+                location.reload(); // โหลดหน้าใหม่เพื่อรีเซ็ตกราฟ
+            }
+    </script>
+
+    <script src="admin/showadmin.js"></script>
+
+</body>
+</html>

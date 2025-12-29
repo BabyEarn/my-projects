@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="user/styles_checkout.css">
+    <script src="user/checkout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promptparse@1.3.0/dist/index.global.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+
+   
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="javascript:void(0);" id="backButton" class="back-button" onclick="history.back();">← BACK</a>
+            <h1>GADY PADIE</h1>
+        </header>
+        
+        <div class="content">
+        <h2>CHECK OUT</h2>
+
+        <section class="account-section">
+            <h3>ACCOUNT</h3>
+            <p>gadypadie@gmail.com</p>
+        </section>
+
+        <section class="main-content">
+            <div class="left-column">
+                <section class="delivery-section">
+                    <h3>DELIVERY</h3>
+                    <div class="address">
+                        <h4>Delivery address</h4>
+                        <p>Ms. Gady Padie</p>
+                        <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom 73170 Thailand</p>
+                        <p>+66999999999</p>
+                    </div><br>
+                    <div class="shipping-method">
+                        <h4>Shipping method</h4>
+                       <label ><input type="radio" id="dhl" name="shipping" value="0" checked> DHL e-commerce - Standard delivery 0.00 THB<br></label>
+                       <label ><input type="radio" id="messenger" name="shipping" value="200"> Messenger 200.00 THB (All distances)</label>
+                    </div>
+                </section>
+
+                <section class="payment-section">
+                    <h3>PAYMENT</h3>
+                    <div class="billing-address">
+                        <h4>Billing address</h4>
+                        <p>Ms. Gady Padie</p>
+                        <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom 73170 Thailand</p>
+                        <p>+66999999999</p>
+                    </div>
+                    <label><input type="checkbox"> Full tax invoice requested</label>
+                    
+                    <div class="payment-methods">
+                        <h4>Payment methods</h4>
+                        <label class="payment-option">
+                            <input type="radio" name="payment">Credit card (Not supported now!)
+                            <img src="credit_card_visa_payment_method_icon_134914.png" alt=""> 
+                            <img src="credit_eurocard_mastercard_payment_method_icon_134925.png" alt="">
+                            <img src="jcb-icon-2048x1577-kr4k1yoa.png" alt="">
+                            <img src="credit_card_american_express_payment_method_icon_134924.png" alt="">
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment"> QR Promptpay
+                            <img src="icon-thaiqr.png" alt="">
+                        </label>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="summary-section">
+                    <h3>SUMMARY</h3>
+                    <p id="item-count">You have items in your cart.</p>
+                    <div id="item-list" class="item-list">
+                        <!-- ข้อมูลสินค้าจะถูกเพิ่มที่นี่ -->
+
+
+                    </div>
+                    <div class="totals">
+                        <p id="subtotal">Subtotal: 0 THB</p>
+                        <p id="shipping">Shipping: 0 THB</p>
+                        <p id="total">Total: 0 THB</p>
+                    </div>
+                    <button class="pay-button" onclick="pay(); pay_open();">PAY</button>
+                    <input type="hidden" id="totalAmount" name="totalAmount">
+
+
+
+                    <div class="qr-popup" style="display: none;" id="qrPopup">
+                        <div class="qr-popup-content">
+                          <h2>PAYMENT INFORMATION</h2>
+                          <div class="qr_img">
+                            <h3>THAI QR PAYMENT</h3>
+                            <img id="imgqr" src="" alt="QR Code">
+
+                            <!---qr-->
+
+
+                            
+                          </div>
+                    
+                          <p class="remark">Remark: PromptPay only allows payment on Mobile Banking app and Authorized 3PP Wallet apps.</p>
+                          
+                          <div class="button-group">
+                            <button class="save-btn" onclick="saveQRCode()">Save QR Code</button>
+                            <button class="ok-btn" onclick="closePopup()">OK</button>
+                          </div>
+                        </div>
+                      </div>
+                </section>
+            </div>
+            
+            </div>
+        </section>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+
+
+        function pay(){
+            document.querySelector(".pay-button").style.display = 'none';
+            const amount = parseFloat($("#totalAmount").val());
+            console.log("Amount to be sent:", amount); // ตรวจสอบค่า
+
+            $.ajax({
+                method: 'post',
+                url: 'https://api.gadypadie.com/pay_qr',  //apiของwebที่ออกเน็ตอยู่
+                data:{
+                    amount: parseFloat($("#totalAmount").val())
+                    
+                },
+                success: function(response) {
+                    console.log('Good',  response)
+                    $("#imgqr").attr('src', response.Result)
+                },error: function(err){
+                    console.log('err',err)
+                    document.querySelector(".pay-button").style.display = 'block';
+                    
+                }
+            })
+        }
+    </script>
+
+    
+</body>
+
+</html>

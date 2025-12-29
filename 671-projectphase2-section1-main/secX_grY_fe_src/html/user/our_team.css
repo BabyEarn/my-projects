@@ -1,0 +1,285 @@
+
+.instance-child {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #ebe6e0;
+}
+
+.instance-item {
+    position: absolute;
+    height: 37.55%;
+    width: 6.6%;
+    top: 32.65%;
+    right: 15.14%;
+    bottom: 29.8%;
+    left: 78.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.gady-padie {
+    position: absolute;
+    top: 10.2%;
+    left: 43.68%;
+    font-size: 32px;
+}
+.our-team1 {
+    position: absolute;
+    top: 36.73%;
+    left: 93.4%;
+    text-transform: uppercase;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1440px;
+    height: 49px;
+    font-size: 12px;
+}
+.meet-the-gady {
+    position: absolute;
+    top: 357px;
+    left: 462px;
+    font-size: 36px;
+    font-weight: 500;
+}
+.our-team-child {
+    position: absolute;
+    top: 455px;
+    left: 29px;
+    border-radius: 5px;
+    background-color: #ebe6e0;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    width: 320px;
+    height: 447px;
+}
+.our-team-item {
+    position: absolute;
+    top: 455px;
+    left: 383px;
+    border-radius: 5px;
+    background-color: #ebe6e0;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    width: 320px;
+    height: 447px;
+}
+.our-team-inner {
+    position: absolute;
+    top: 455px;
+    left: 737px;
+    border-radius: 5px;
+    background-color: #ebe6e0;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    width: 320px;
+    height: 447px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 455px;
+    left: 1091px;
+    border-radius: 5px;
+    background-color: #ebe6e0;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    width: 320px;
+    height: 447px;
+}
+.tas-sukastid {
+    position: absolute;
+    top: 724px;
+    left: 43px;
+    font-weight: 600;
+}
+.bxl-instagram-icon {
+    position: absolute;
+    top: 859px;
+    left: 43px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-facebook-circle-icon {
+    position: absolute;
+    top: 859px;
+    left: 81px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-github-icon {
+    position: absolute;
+    top: 859px;
+    left: 119px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.div {
+    position: absolute;
+    top: 749px;
+    left: 43px;
+    font-size: 14px;
+    font-weight: 200;
+}
+.thankamol-saekeang {
+    position: absolute;
+    top: 724px;
+    left: 402px;
+    font-weight: 600;
+}
+.bxl-instagram-icon1 {
+    position: absolute;
+    top: 859px;
+    left: 402px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+    
+}
+.bxl-facebook-circle-icon1 {
+    position: absolute;
+    top: 859px;
+    left: 440px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-github-icon1 {
+    position: absolute;
+    top: 859px;
+    left: 478px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.div1 {
+    position: absolute;
+    top: 749px;
+    left: 402px;
+    font-size: 14px;
+    font-weight: 200;
+}
+.phimchanok-laonok {
+    position: absolute;
+    top: 720px;
+    left: 756px;
+    font-weight: 600;
+}
+.bxl-instagram-icon2 {
+    position: absolute;
+    top: 855px;
+    left: 756px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-facebook-circle-icon2 {
+    position: absolute;
+    top: 855px;
+    left: 794px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-github-icon2 {
+    position: absolute;
+    top: 855px;
+    left: 832px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.div2 {
+    position: absolute;
+    top: 745px;
+    left: 756px;
+    font-size: 14px;
+    font-weight: 200;
+}
+.weerapat-aphiphuwong {
+    position: absolute;
+    top: 724px;
+    left: 1110px;
+    font-weight: 600;
+}
+.bxl-instagram-icon3 {
+    position: absolute;
+    top: 859px;
+    left: 1110px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-facebook-circle-icon3 {
+    position: absolute;
+    top: 859px;
+    left: 1148px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bxl-github-icon3 {
+    position: absolute;
+    top: 859px;
+    left: 1186px;
+    width: 29px;
+    height: 29px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.div3 {
+    position: absolute;
+    top: 749px;
+    left: 1110px;
+    font-size: 14px;
+    font-weight: 200;
+}
+.our-team2 {
+    position: absolute;
+    top: 317px;
+    left: 667px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.image-icon {
+    position: absolute;
+    top: 121px;
+    left: 650px;
+    width: 140px;
+    height: 155px;
+    object-fit: cover;
+}
+.our-team {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    font-family: Inter;
+    justify-content: center;
+}
+
